@@ -26,6 +26,6 @@
     </section>
     <div>
         <p>Don’t have an account?</p>
-        <a href="./singup.php">Sign up</a>
+        <a href="./signup.php">Sign up</a>
     </div>
     <?php include_once("./footer.php"); ?>

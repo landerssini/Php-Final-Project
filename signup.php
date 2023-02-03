@@ -16,14 +16,17 @@
     <?php include_once("./header.php"); ?>
     <section>
         <h3>Sign up</h3>
-        <form action="signup.php" method="post">
+        <form action="signup.inc.php" method="post">
             <label for="user">User</label>
-            <input type="text" id="user" placeholder="Your name">
+            <input type="text" id="user" name="username" placeholder="Your name">
             <label for="email">Email</label>
-            <input type="text" id="Email" placeholder="Example@mail.com">
+            <input type="text" id="email" name="email" placeholder="Example@mail.com">
             <label for="password">Password</label>
-            <input type="password" id="password" placeholder="At least 8 characters">
-            <input type="submit" value="Login">
+            <input type="password" name="password" id="password" placeholder="At least 8 characters">
+            
+            <label for="passwordRepeat">Password Repeat</label>
+            <input type="password" id="passwordRepeat" name="passwordRepeat" placeholder="At least 8 characters">
+            <input type="submit" name="submit" value="signup">
         </form>
     </section>
     <div>
