@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <?php include_once("./userpanel.php"); ?>
+    <?php include_once("./create_movie.php"); ?>
     <?php include_once("./partials/header.php"); ?>
     <section>
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#create-movie-modal">
@@ -58,7 +58,7 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <input type="submit" id="create_button" class="btn btn-primary col-auto my-1" value="Create" >
+                            <input type="submit" id="create_button" name="send-movie" class="btn btn-primary col-auto my-1" value="Create" >
                         </div>
                     </form>
                 </div>
@@ -85,14 +85,21 @@
                 </tr>
             </thead>
             <tbody>
-                <?php 
-                
-                    include 'db.php';
-                   
-                ?>
+
             </tbody>
             <tr id ="new-movie">
+                <?php $movie = new CreateMovie(); 
+                `<td>$movie->$movie_name</td>
+                <td>$movie->$movie_year</td>
+                <td>$movie->$movie_genre</td>
+                <td>$movie->$movie_director</td>
+                <td>$movie->$movie_time</td>
+                <td>$movie->$movie_review</td>`
                 
+                ?>
+                
+                
+
             </tr>
         </table>
     </section>
