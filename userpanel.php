@@ -27,6 +27,7 @@ if (isset($_SESSION["userId"])) {
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="./assets/css/styles.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
         <title>FAVORITE-MOVIES</title>
     </head>
 
@@ -40,29 +41,29 @@ if (isset($_SESSION["userId"])) {
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-body">
-                            <form action="newmovie.php" method="post">
-                                <label for="name">Name</label>
-                                <input type="text">
-                                <label for="year">Year</label>
-                                <input type="text">
-                                <label for="genre">Genre</label>
-                                <input type="text">
-                                <label for="director">Director</label>
-                                <input type="text">
-                                <label for="time">Time (Minutes)</label>
-                                <input type="text">
-                                <label for="review">Review</label>
+                            <form action="newmovie.php" method="post" id="addMovieForm">
+                                <label for="name">Name</label><br>
+                                <input type="text"><br>
+                                <label for="year">Year</label><br>
+                                <input type="text"><br>
+                                <label for="genre">Genre</label><br>
+                                <input type="text"><br>
+                                <label for="director">Director</label><br>
+                                <input type="text"><br>
+                                <label for="time">Time (Minutes)</label><br>
+                                <input type="text"><br>
+                                <label for="review">Review</label><br>
                                 <input type="radio" id="1star" name="review" value="1">
                                 <input type="radio" id="2star" name="review" value="2">
                                 <input type="radio" id="3star" name="review" value="3">
                                 <input type="radio" id="4star" name="review" value="4">
                                 <input type="radio" id="5star" name="review" value="5">
-                                <input type="submit" value="Add movie">
+                                
                             </form>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Understood</button>
+                            <button type="submit" class="btn btn-primary" form="addMovieForm">Add movie</button>
                         </div>
                     </div>
                 </div>
@@ -87,21 +88,24 @@ if (isset($_SESSION["userId"])) {
                     <th>Actions</th>
                 </thead>
                 <tbody>
-                <?php foreach ($movieIds as $movieId) {
-                    $queryGetMovie = 'SELECT * FROM movies WHERE id = ' . $movieId . ';';
-                    $result = mysqli_query($conn, $queryGetMovie);
-                    $movie = mysqli_fetch_array($result);?>
-                <tr>
-                    <td><?php echo $movie["id"]; ?></td>
-                    <td><?php echo $movie["movie_name"]; ?></td>
-                    <td><?php echo $movie["year"]; ?></td>
-                    <td><?php echo $movie["genre"]; ?></td>
-                    <td><?php echo $movie["director"]; ?></td>
-                    <td><?php echo $movie["time_minutes"]; ?></td>
-                    <td><?php echo $movie["review"]; ?></td>
-                    <td><button id="<?php echo $movie["id"];?>" <?php echo " class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#exampleModal'"?>>hola</button></td>
-                </tr>
-                <?php } }?>
+                    <?php foreach ($movieIds as $movieId) {
+                        $queryGetMovie = 'SELECT * FROM movies WHERE id = ' . $movieId . ';';
+                        $result = mysqli_query($conn, $queryGetMovie);
+                        $movie = mysqli_fetch_array($result); ?>
+                        <tr>
+                            <td><?php echo $movie["id"]; ?></td>
+                            <td><?php echo $movie["movie_name"]; ?></td>
+                            <td><?php echo $movie["year"]; ?></td>
+                            <td><?php echo $movie["genre"]; ?></td>
+                            <td><?php echo $movie["director"]; ?></td>
+                            <td><?php echo $movie["time_minutes"]; ?></td>
+                            <td><?php echo $movie["review"]; ?></td>
+                            <td><button id="<?php echo $movie["id"]; ?>" <?php echo " class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#exampleModal'" ?>><span class="material-symbols-outlined">
+                                        edit
+                                    </span></button></td>
+                        </tr>
+                <?php }
+                } ?>
                 </tbody>
             </table>
         </section>
