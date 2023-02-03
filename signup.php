@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,7 +29,7 @@
         </form>
     </section>
     <div>
-        <p>Don’t have an account?</p>
+        <p>Don't have an account?</p>
         <a href="./login.php">Log in</a>
     </div>
 
