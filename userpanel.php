@@ -58,7 +58,6 @@ if (isset($_SESSION["userId"])) {
                                 <input type="radio" id="3star" name="review" value="3">
                                 <input type="radio" id="4star" name="review" value="4">
                                 <input type="radio" id="5star" name="review" value="5">
-                                
                             </form>
                         </div>
                         <div class="modal-footer">
