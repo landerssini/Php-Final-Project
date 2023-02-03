@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <?php include_once("./header.php"); ?>
+    <?php include_once("./partials/header.php"); ?>
     <section>
         <h3>Sign up</h3>
         <form action="signup.php" method="post">
@@ -31,4 +31,4 @@
         <a href="./login.php">Log in</a>
     </div>
 
-    <?php include_once("./footer.php"); ?>
+    <?php include_once("./partials/footer.php"); ?>

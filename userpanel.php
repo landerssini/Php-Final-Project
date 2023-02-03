@@ -1,14 +1,15 @@
 <?php
+
 // require "connection.php";
 session_start();
 //----------connection.php
-$conn = mysqli_connect("localhost", "root", "", "Favorite_movies");
+$conn = mysqli_connect("localhost", "root", "", "favorites_movies");
 
 //------------
 if (isset($_SESSION["userId"])) {
     header("location: index.php?web=privatezone");
 } else {
-    $user_id = $_SESSION["userId"];
+    // $user_id = $_SESSION["userId"];
     $queryShowMovies = "SELECT movies.id FROM users JOIN movies ON users.id = movies.user_id WHERE users.id = 2;"; //change "2"for "$user_id"
     $query = mysqli_query($conn, $queryShowMovies);
     $movieIds = array();
@@ -32,7 +33,7 @@ if (isset($_SESSION["userId"])) {
     </head>
 
     <body>
-        <?php include_once("./header.php"); ?>
+        <?php include_once("./partials/header.php"); ?>
         <section>
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 New
@@ -113,4 +114,4 @@ if (isset($_SESSION["userId"])) {
             <div></div>
             <button>Next</button>
         </div>
-        <?php include_once("./footer.php"); ?>
+        <?php include_once("./partials/footer.php"); ?>
