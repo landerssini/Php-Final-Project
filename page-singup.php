@@ -1,6 +1,6 @@
+<?php include ("singup.php");?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,17 +15,22 @@
 <body>
     <?php include_once("./header.php"); ?>
     <section>
-        <h3>Log In</h3>
-        <form action="Login.php" method="post">
-            <label for="username">Username</label>
-            <input type="text" id="username">
+
+        <h3>Sign up</h3>
+        <form action="singup.php" method="POST">
+            <label for="user">User</label>
+            <input type="text" id="user" placeholder="Your name" name="name">
+            <label for="email">Email</label>
+            <input type="text" id="Email" placeholder="Example@mail.com" name="email">
             <label for="password">Password</label>
-            <input type="password" id="password">
-            <input type="submit" value="Sign up">
+            <input type="password" id="password" placeholder="At least 8 characters" name="password">
+            <input type="submit" value="Login" name="send-register">
         </form>
     </section>
     <div>
         <p>Don’t have an account?</p>
-        <a href="./page-singup.php">Sign up</a>
+        <a href="./login.php">Log in</a>
     </div>
+
+
     <?php include_once("./footer.php"); ?>
