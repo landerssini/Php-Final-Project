@@ -1,4 +1,14 @@
-<?php include ("singup.php");?>
+<?php include ("singup.php");
+
+include_once("db.php");
+include_once("login-validation.php");
+session_start();
+
+if ($_SESSION["currentUser"]) {
+    header("location:userpanel.php");
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
