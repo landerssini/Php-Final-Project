@@ -1,6 +1,6 @@
 <?php
 
-    include_once("db.php");
+    include_once("./db.php");
  
     if(isset($_POST['submit-login'])){
         $email = $_POST["email"];
@@ -27,7 +27,7 @@
     $auth = new Login();
 
     if ($auth->login($email, $password)) {
-        header("location:userpanel.php");
+        header("location:./userpanel.php");
     } else {
         echo "wrong credentials"; 
     };

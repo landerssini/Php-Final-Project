@@ -1,8 +1,11 @@
 <?php 
-include ("signup.php");
-include_once("db.php");
+include ("./signup.php");
+include_once("./db.php");
 
 session_start();
+// if(isset($_SESSION['errorMsn'])) {
+//     $error = "Email Already exist, try again!";
+// }
 
 if (isset($_SESSION["currentUser"])) {
     header("location:userpanel.php");
@@ -25,22 +28,23 @@ if (isset($_SESSION["currentUser"])) {
 <body>
     <?php include_once("./header.php"); ?>
     <section>
-
+       
+       
         <h3>Sign up</h3>
-        <form action="signup.php" method="POST">
+        <form action="" method="POST" >
             <label for="user">User</label>
             <input type="text" id="user" placeholder="Your name" name="name">
             <label for="email">Email</label>
             <input type="text" id="Email" placeholder="Example@mail.com" name="email">
             <label for="password">Password</label>
             <input type="password" id="password" placeholder="At least 8 characters" name="password">
-            <input type="submit" value="Sign up" name="send-register">
+            <input type="submit" value="Sign up" name="send-register">  
         </form>
     </section>
     <div>
         <p>Don’t have an account?</p>
         <a href="./form-login.php">Log in</a>
-    </div>
+    </div><?php unset($_SESSION['errorMsn']); ?>
 
 
     <?php include_once("./footer.php"); ?>

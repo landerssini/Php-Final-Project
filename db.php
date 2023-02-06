@@ -1,14 +1,21 @@
 <?php 
 
   class Connection{
-      public $host = 'localhost';
-      public $username = 'root';
-      public $password = '';
-      public $db_name = 'favorites_movies';
+  private $host;
+  private $userName;
+  private $password;
+  private $db_name;
 
-      public function connect(){
-        return mysqli_connect($this->host, $this->username, $this->password, $this->db_name);
-      }
+    public function __construct(){
+      $this->host = 'localhost';
+      $this->userName = "root";
+      $this->password = '';
+      $this->db_name = 'favorites_movies';
+    }
+    public function connect(){
+      $conn = mysqli_connect($this->host, $this->userName, $this->password, $this->db_name);
+      return $conn;
+    }
   }
 
 
