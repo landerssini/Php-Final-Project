@@ -16,12 +16,14 @@
     <?php include_once("./header.php"); ?>
     <section>
         <h3>Log In</h3>
-        <form action="Login.php" method="post">
+        <form action="login-validation.php" method="post">
             <label for="username">Username</label>
-            <input type="text" id="username">
+            <input type="text" id="username" name="user">
+            <label for="email">Email</label>
+            <input type="email" id="email-login" name="email">
             <label for="password">Password</label>
-            <input type="password" id="password">
-            <input type="submit" value="Sign up">
+            <input type="password" id="password" name="password">
+            <input type="submit" value="Login">
         </form>
     </section>
     <div>
