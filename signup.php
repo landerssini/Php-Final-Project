@@ -1,12 +1,8 @@
 <?php
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
     include_once("db.php");
 
-    class SingUp extends Connection  {
+    class SignUp extends Connection  {
         
         public function register($name, $email, $pass) {
             $conexion = parent::connect();
@@ -25,7 +21,7 @@ error_reporting(E_ALL);
             $email = $_POST['email'];
             $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
             
-            $user = new SingUp();
+            $user = new SignUp();
             
             if ($user->register($name_user, $email, $password)) {
                 header("location:index.php");

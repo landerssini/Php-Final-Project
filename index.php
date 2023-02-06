@@ -1,2 +1,2 @@
-<?php include_once("./login.php"); ?>
-<?php include_once("./footer.php"); ?>
+<?php include_once("./form-login.php"); ?>
+<?php include_once("./partials/footer.php"); ?>

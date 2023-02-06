@@ -1,11 +1,20 @@
 <?php
+
 require "db.php";
 session_start();
 
 if (!isset($_SESSION["currentUser"])) {
     header("location: index.php?web=privatezone");
 } 
-
+else {
+    $conn = parent::connect();
+    $currentUser = $_SESSION["currentUser"];
+    $queryShowMovies = "SELECT movies.id FROM users JOIN movies ON users.id = movies.user_id WHERE users.email = ".$currentUser." ;"; //change "2"for "$user_id"
+    $query = mysqli_query($conn, $queryShowMovies);
+    $movieIds = array();
+    while ($movieList = mysqli_fetch_array($query)) {
+        $movieIds[] = $movieList['id'];
+    }
 ?>
     <!DOCTYPE html>
     <html lang="en">
@@ -79,7 +88,24 @@ if (!isset($_SESSION["currentUser"])) {
                     <th>Actions</th>
                 </thead>
                 <tbody>
-                   
+                    <?php foreach ($movieIds as $movieId) {
+                        $queryGetMovie = 'SELECT * FROM movies WHERE id = ' . $movieId . ';';
+                        $result = mysqli_query($conn, $queryGetMovie);
+                        $movie = mysqli_fetch_array($result); ?>
+                        <tr>
+                            <td><?php echo $movie["id"]; ?></td>
+                            <td><?php echo $movie["movie_name"]; ?></td>
+                            <td><?php echo $movie["year"]; ?></td>
+                            <td><?php echo $movie["genre"]; ?></td>
+                            <td><?php echo $movie["director"]; ?></td>
+                            <td><?php echo $movie["time_minutes"]; ?></td>
+                            <td><?php echo $movie["review"]; ?></td>
+                            <td><button id="<?php echo $movie["id"]; ?>" <?php echo " class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#exampleModal'" ?>><span class="material-symbols-outlined">
+                                        edit
+                                    </span></button></td>
+                        </tr>
+                <?php }
+                } ?>
                 </tbody>
             </table>
         </section>

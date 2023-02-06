@@ -1,43 +1,43 @@
 <?php
-include_once("db.php");
-include_once("login-validation.php");
-session_start();
 
-if ($_SESSION["currentUser"]) {
-    header("location:userpanel.php");
-}
+    include_once("db.php");
+ 
+    if(isset($_POST['submit-login'])){
+        $email = $_POST["email"];
+        $password = $_POST["password"];
+    }
 
-?>
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="./assets/js/script.js" defer></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./assets/css/styles.css">
-    <title>FAVORITE-MOVIES</title>
-</head>
-
-<body>
-    <?php include_once("./header.php"); ?>
-    <section>
-        <h3>Log In</h3>
-        <form action="login-validation.php" method="post">
+    class Login extends Connection  {
+        
+        public function login($email, $password) {
+            $conexion = parent::connect();
+            $sql = "SELECT * FROM users WHERE email = '$email'";
+            $answer = mysqli_query($conexion, $sql);
+            $passwordHashed = mysqli_fetch_array($answer)["password"];
             
-            <label for="email">Email</label>
-            <input type="email" id="email-login" name="email">
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password">
-            <input type="submit" value="Login">
-        </form>
-    </section>
-    <div>
-        <p>Don’t have an account?</p>
-        <a href="./page-singup.php">Sign up</a>
-    </div>
-    <?php include_once("./footer.php"); ?>
+            if (password_verify($password, $passwordHashed)) {
+                session_start();
+                $_SESSION["currentUser"] = $email;
+                return true;
+            }
+        }
+    }
+
+    $auth = new Login();
+
+    if ($auth->login($email, $password)) {
+        header("location:userpanel.php");
+    } else {
+        echo "wrong credentials"; 
+    };
+        
+    
+
+    
+
+?> 
+
+
+
+
