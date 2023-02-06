@@ -1,16 +1,14 @@
 <?php
 
-// require "connection.php";
+require "db.php";
 session_start();
-//----------connection.php
-$conn = mysqli_connect("localhost", "root", "", "favorites_movies");
 
-//------------
-if (isset($_SESSION["userId"])) {
+if (isset($_SESSION["currentUser"])) {
     header("location: index.php?web=privatezone");
 } else {
-    // $user_id = $_SESSION["userId"];
-    $queryShowMovies = "SELECT movies.id FROM users JOIN movies ON users.id = movies.user_id WHERE users.id = 2;"; //change "2"for "$user_id"
+    
+    $currentUser = $_SESSION["currentUser"];
+    $queryShowMovies = "SELECT movies.id FROM users JOIN movies ON users.id = movies.user_id WHERE users.email = ".$currentUser." ;"; //change "2"for "$user_id"
     $query = mysqli_query($conn, $queryShowMovies);
     $movieIds = array();
     while ($movieList = mysqli_fetch_array($query)) {
