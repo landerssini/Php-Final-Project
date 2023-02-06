@@ -1,11 +1,12 @@
 <?php
-include_once("db.php");
+    include_once("db.php");
+    // require_once("login.php");
 
-session_start();
+    session_start();
 
-if (isset($_SESSION["currentUser"])) {
-    header("location:userpanel.php");
-}
+    if (isset($_SESSION["currentUser"])) {
+        header("location:userpanel.php");
+    }
 
 ?>
 
@@ -28,7 +29,8 @@ if (isset($_SESSION["currentUser"])) {
     <?php include_once("./partials/header.php"); ?>
     <section>
         <h3>Log In</h3>
-        <form action="login.php" method="post">
+        
+        <form action="form-login.php" method="post">
             
             <label for="email">Email</label>
             <input type="email" id="email-login" name="email">
