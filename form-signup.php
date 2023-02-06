@@ -1,10 +1,10 @@
-<?php include ("singup.php");
-
+<?php 
+include ("signup.php");
 include_once("db.php");
-// include_once("login-validation.php");
+
 session_start();
 
-if ($_SESSION["currentUser"]) {
+if (isset($_SESSION["currentUser"])) {
     header("location:userpanel.php");
 }
 
@@ -27,7 +27,7 @@ if ($_SESSION["currentUser"]) {
     <section>
 
         <h3>Sign up</h3>
-        <form action="singup.php" method="POST">
+        <form action="signup.php" method="POST">
             <label for="user">User</label>
             <input type="text" id="user" placeholder="Your name" name="name">
             <label for="email">Email</label>
@@ -39,7 +39,7 @@ if ($_SESSION["currentUser"]) {
     </section>
     <div>
         <p>Don’t have an account?</p>
-        <a href="./login.php">Log in</a>
+        <a href="./form-login.php">Log in</a>
     </div>
 
 

@@ -1,34 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="./assets/js/script.js" defer></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./assets/css/styles.css">
-    <title>FAVORITE-MOVIES</title>
-</head>
+    include_once("db.php");
 
-<body>
-    <?php include_once("./partials/header.php"); ?>
-    <section>
-        <h3>Sign up</h3>
-        <form action="signup.php" method="post">
-            <label for="user">User</label>
-            <input type="text" id="user" placeholder="Your name">
-            <label for="email">Email</label>
-            <input type="text" id="Email" placeholder="Example@mail.com">
-            <label for="password">Password</label>
-            <input type="password" id="password" placeholder="At least 8 characters">
-            <input type="submit" value="Login">
-        </form>
-    </section>
-    <div>
-        <p>Don’t have an account?</p>
-        <a href="./login.php">Log in</a>
-    </div>
+    class SignUp extends Connection  {
+        
+        public function register($name, $email, $pass) {
+            $conexion = parent::connect();
+            $sql = "INSERT INTO users (id, name, email, password) VALUES (NULL,?,?,?)";
+            $query = $conexion->prepare($sql);
+            $query->bind_param('sss', $name, $email, $pass);
+            return $query->execute();
+        }
+    }
 
-    <?php include_once("./partials/footer.php"); ?>
+    if(isset($_POST["send-register"])){
+        if(empty($_POST["name"]) || empty($_POST["email"]) || empty($_POST["password"])){
+            echo "<p>Fields cannot be left empty.</p>";
+        }else{
+            $name_user = $_POST['name'];
+            $email = $_POST['email'];
+            $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+            
+            $user = new SignUp();
+            
+            if ($user->register($name_user, $email, $password)) {
+                header("location:index.php");
+            } else {
+                echo "Could not register";
+            }
+        }
+}
+
+?>
