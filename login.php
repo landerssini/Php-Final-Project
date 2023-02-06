@@ -1,11 +1,7 @@
 <?php
 include_once("db.php");
-include_once("login-validation.php");
-session_start();
+// include_once("login-validation.php");
 
-if ($_SESSION["currentUser"]) {
-    header("location:userpanel.php");
-}
 
 ?>
 
@@ -33,7 +29,7 @@ if ($_SESSION["currentUser"]) {
             <input type="email" id="email-login" name="email">
             <label for="password">Password</label>
             <input type="password" id="password" name="password">
-            <input type="submit" value="Login">
+            <input type="submit" value="Login" name="submit-login">
         </form>
     </section>
     <div>

@@ -1,7 +1,7 @@
 <?php include ("singup.php");
 
 include_once("db.php");
-include_once("login-validation.php");
+// include_once("login-validation.php");
 session_start();
 
 if ($_SESSION["currentUser"]) {
