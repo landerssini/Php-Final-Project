@@ -3,29 +3,29 @@
 
 class SignupContr extends databaseConnect {
 
-    protected function setUser($username, $password, $email) {
-        $statement = $this->connect()->prepare('INSERT INTO users (username, password, email) VALUES (?,?,?);');
+    public function setUser($username, $email, $password) {
+        $statement = $this->connect()->prepare('INSERT INTO users (name, password, email) VALUES (?,?,?);');
 
         $encrypt = password_hash($password, PASSWORD_DEFAULT);
 
-        if (!$statement->execute(array($usename, $encrypt, $email))) {
-            $statment = null;
+        if (!$statement->execute(array($username, $encrypt, $email))) {
+            $statement = null;
             echo "Sign Up error!";
         };
 
         
     } 
     
-    protected function checkUser($username, $email) {
-        $statement = $this.connect()->prepare('SELECT username FROM users WHERE username = ? OR email = ?');
-        if (!$statement->execute(array($usename, $email))) {
-            $statment = null;
+    public function checkUser($username, $email) {
+        $statement = $this->connect()->prepare('SELECT username FROM users WHERE name = ? OR email = ?');
+        if (!$statement->execute(array($username, $email))) {
+            $statement = null;
             echo "Sign Up error!";
         };
 
         $resultCheck;
         
-        if($statement -> rowCount() > 0) {
+        if(!$statement -> rowCount() > 0) {
             $resultCheck = false;
         } else { 
             $resultCheck = true;
