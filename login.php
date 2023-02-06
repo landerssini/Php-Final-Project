@@ -1,3 +1,14 @@
+<?php
+include_once("db.php");
+include_once("login-validation.php");
+session_start();
+
+if ($_SESSION["currentUser"]) {
+    header("location:userpanel.php");
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,12 +28,13 @@
     <?php include_once("./partials/header.php"); ?>
     <section>
         <h3>Log In</h3>
-        <form action="Login.php" method="post">
-            <label for="username">Username</label>
-            <input type="text" id="username">
+        <form action="login-validation.php" method="post">
+            
+            <label for="email">Email</label>
+            <input type="email" id="email-login" name="email">
             <label for="password">Password</label>
-            <input type="password" id="password">
-            <input type="submit" value="Sign up">
+            <input type="password" id="password" name="password">
+            <input type="submit" value="Login">
         </form>
     </section>
     <div>

@@ -1,4 +1,14 @@
-<?php include ("singup.php");?>
+<?php include ("singup.php");
+
+include_once("db.php");
+include_once("login-validation.php");
+session_start();
+
+if ($_SESSION["currentUser"]) {
+    header("location:userpanel.php");
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,7 +34,7 @@
             <input type="text" id="Email" placeholder="Example@mail.com" name="email">
             <label for="password">Password</label>
             <input type="password" id="password" placeholder="At least 8 characters" name="password">
-            <input type="submit" value="Login" name="send-register">
+            <input type="submit" value="Sign up" name="send-register">
         </form>
     </section>
     <div>

@@ -67,10 +67,11 @@ if (isset($_SESSION["currentUser"])) {
                 </div>
             </div>
             <input type="text" name="" id="">
-            <div>
+            
+        <div>
                 <img src="" alt="">
                 <p>Lander sola</p>
-                <button>Exit</button>
+                <a href="logout.php">Exit</a>
             </div>
         </section>
         <section>
