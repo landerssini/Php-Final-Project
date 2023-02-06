@@ -8,7 +8,7 @@
 
     class Login extends Connection  {
         
-        public function login($user, $email, $pass) {
+        public function login($user, $email, $password) {
             $conexion = parent::connect();
             $sql = "SELECT * FROM users WHERE email = '$user'";
             $answer = mysqli_query($conexion, $sql);
@@ -21,7 +21,9 @@
         }
     }
 
-    if (login($user, $email, $password)) {
+    $auth = new Login();
+
+    if ($auth->login($user, $email, $password)) {
         header("location:userpanel.php");
     } else {
         echo "wrong password"; 
