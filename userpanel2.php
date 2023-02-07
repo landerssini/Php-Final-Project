@@ -32,7 +32,7 @@ else {
     </head>
 
     <body>
-        <?php include_once("./partials/header.php"); ?>
+        <?php include_once("./view/header.php"); ?>
         <section>
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 New
@@ -114,4 +114,4 @@ else {
             <div></div>
             <button>Next</button>
         </div>
-        <?php include_once("./partials/footer.php"); ?>
+        <?php include_once("./view/footer.php"); ?>

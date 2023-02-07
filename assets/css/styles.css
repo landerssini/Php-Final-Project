@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.nav-log{
+    padding:1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+form{
+    display: flex;
+    flex-direction: column;
+}
+.form-register{
+    max-width: 500px;
+    margin: 0 auto;
+}
+.modal-footer{
+    border:none;
+}
+
