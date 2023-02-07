@@ -8,8 +8,8 @@ if (!isset($_SESSION["currentUser"])) {
     header("location: index.php?web=privatezone");  
 }
 
-// $db = new Delete;
-// $db->deleteUser();
+$db = new Delete;
+$db->deleteUser();
 
 
 ?>
