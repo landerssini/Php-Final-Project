@@ -1,0 +1,11 @@
+#initialPageDiv {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+}
+
+
+html {
+    color: black;
+}
