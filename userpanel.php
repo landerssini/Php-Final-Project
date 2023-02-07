@@ -57,7 +57,8 @@ if (!isset($_SESSION["currentUser"])) {
                     </div>
                 </div>
             </div>
-        </div>
+        </div> 
+        <div>
         <input type="text" id="searchBar">
         <div id="searchBarResults"></div>
 
@@ -65,6 +66,7 @@ if (!isset($_SESSION["currentUser"])) {
             <img src="" alt="">
             <p>Lander sola</p>
             <a href="logout.php">Exit</a>
+        </div>
         </div>
     </section>
     <section>
