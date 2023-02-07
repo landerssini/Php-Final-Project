@@ -1,10 +1,16 @@
 <?php
-require "db.php";
+require_once ("./db.php");
+require_once ("./delete.php");
+
 session_start();
 
 if (!isset($_SESSION["currentUser"])) {
-    header("location: index.php?web=privatezone");
-} 
+    header("location: index.php?web=privatezone");  
+}
+
+// $db = new Delete;
+// $db->deleteUser();
+
 
 ?>
     <!DOCTYPE html>
@@ -26,35 +32,20 @@ if (!isset($_SESSION["currentUser"])) {
         <?php include_once("./partials/header.php"); ?>
         <section>
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                New
+                Delete
             </button>
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-dialog modal-dialog-centered modal-sm">
                     <div class="modal-content">
-                        <div class="modal-body">
-                            <form action="newmovie.php" method="post" id="addMovieForm">
-                                <label for="name">Name</label><br>
-                                <input type="text"><br>
-                                <label for="year">Year</label><br>
-                                <input type="text"><br>
-                                <label for="genre">Genre</label><br>
-                                <input type="text"><br>
-                                <label for="director">Director</label><br>
-                                <input type="text"><br>
-                                <label for="time">Time (Minutes)</label><br>
-                                <input type="text"><br>
-                                <label for="review">Review</label><br>
-                                <input type="radio" id="1star" name="review" value="1">
-                                <input type="radio" id="2star" name="review" value="2">
-                                <input type="radio" id="3star" name="review" value="3">
-                                <input type="radio" id="4star" name="review" value="4">
-                                <input type="radio" id="5star" name="review" value="5">
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary" form="addMovieForm">Add movie</button>
-                        </div>
+                        <form method="POST">
+                            <div class="modal-body">
+                                <p>Are you sure?</p>
+                                <p class="text-center"> You won't be able to revert this!</p>
+                                <input type="hidden" name="currentUser" value ='<?php echo $_SESSION["currentUser"]?>'>
+                                <input type="button" class="btn btn-outline-primary" data-bs-dismiss="modal" value="Cancel">
+                                <input type="submit" class="btn btn-outline-danger" name="delete" value="Delete">
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

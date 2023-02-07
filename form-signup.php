@@ -3,9 +3,6 @@ include ("./signup.php");
 include_once("./db.php");
 
 session_start();
-// if(isset($_SESSION['errorMsn'])) {
-//     $error = "Email Already exist, try again!";
-// }
 
 if (isset($_SESSION["currentUser"])) {
     header("location:userpanel.php");
@@ -42,9 +39,8 @@ if (isset($_SESSION["currentUser"])) {
         </form>
     </section>
     <div>
-        <p>Don’t have an account?</p>
+        <p>Don't have an account?</p>
         <a href="./form-login.php">Log in</a>
-    </div><?php unset($_SESSION['errorMsn']); ?>
 
 
     <?php include_once("./footer.php"); ?>

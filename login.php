@@ -24,12 +24,13 @@
         }
     }
 
+
     $auth = new Login();
 
     if ($auth->login($email, $password)) {
         header("location:./userpanel.php");
     } else {
-        echo "wrong credentials"; 
+        header("location: ./form-login.php"); 
     };
         
     

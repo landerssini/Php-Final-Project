@@ -38,7 +38,7 @@ if (isset($_SESSION["currentUser"])) {
         </form>
     </section>
     <div>
-        <p>Don’t have an account?</p>
+        <p>Don't have an account?</p>
         <a href="./form-signup.php">Sign up</a>
     </div>
     <?php include_once("./partials/footer.php"); ?>

@@ -1,6 +1,9 @@
 <?php
 
-    include("./db.php");
+    include_once("./db.php");
+
+   
+    
 
     class SignUp extends Connection {
         
@@ -8,10 +11,9 @@
         public function register($name, $email, $pass) {
             $conexion = parent::connect();
             $check_sql = "SELECT email FROM users WHERE email = '$email'";
-            $db = new Connection;
-            $check_query = mysqli_query($db->connect(), $check_sql);
+            $check_query = mysqli_query($conexion, $check_sql);
             if(mysqli_num_rows($check_query) > 0) {
-               echo '<p class="form-group">Email already exist, try again!</p>';
+               echo '<p>Email already exist, try again!</p>';
             }else {
                 $sql = "INSERT INTO users (id, name, email, password) VALUES (NULL,?,?,?)";
                 $query = $conexion->prepare($sql);
@@ -30,9 +32,7 @@
             $name_user = $_POST['name'];
             $email = $_POST['email'];
             $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-            
             $user = new SignUp();
-            
             if ($user->register($name_user, $email, $password)) {
                 header("location:index.php");
             }
