@@ -41,4 +41,7 @@ if (isset($_SESSION["currentUser"])) {
         <p>Don’t have an account?</p>
         <a href="./form-signup.php">Sign up</a>
     </div>
+    <div id="weekTrendMovies">
+        
+    </div>
     <?php include_once("./partials/footer.php"); ?>
