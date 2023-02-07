@@ -1,10 +1,11 @@
 <?php 
-
   class Connection{
   private $host;
   private $userName;
   private $password;
   private $db_name;
+
+  public $connection;
 
     public function __construct(){
       $this->host = 'localhost';
@@ -16,6 +17,8 @@
       $conn = mysqli_connect($this->host, $this->userName, $this->password, $this->db_name);
       return $conn;
     }
+
+
   }
 
 

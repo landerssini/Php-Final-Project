@@ -1,6 +1,8 @@
 <?php
-    include_once("db.php");
-    // require_once("login.php");
+    if(isset($_POST['email']) && isset($_POST['password'])){
+        require_once("login.php");
+        include_once ('update.php');
+    }
 
     session_start();
 
@@ -26,21 +28,11 @@
 </head>
 
 <body>
-    <?php include_once("./partials/header.php"); ?>
+    <?php include_once("./view/header.php"); ?>
     <section>
-        <h3>Log In</h3>
         
-        <form action="form-login.php" method="post">
-            
-            <label for="email">Email</label>
-            <input type="email" id="email-login" name="email">
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password">
-            <input type="submit" value="Login" name="submit-login">
-        </form>
+            API PELIS
+        
     </section>
-    <div>
-        <p>Don’t have an account?</p>
-        <a href="./form-signup.php">Sign up</a>
-    </div>
-    <?php include_once("./partials/footer.php"); ?>
+
+    <?php include_once("./view/footer.php"); ?>
