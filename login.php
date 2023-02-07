@@ -32,7 +32,8 @@
     $auth = new Login();
 
     if ($auth->login($email, $password)) {
-        header("location:./userpanel.php");
+        header("location:./form-userpanel.php");
+    
     } else {
         header("location: ./form-login.php"); 
     };

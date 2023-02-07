@@ -5,7 +5,7 @@ require_once ("./delete.php");
 session_start();
 
 if (!isset($_SESSION["currentUser"])) {
-    header("location: index.php?web=privatezone");  
+    header("location: index.php?web=privatezone");
 }
 
 $db = new Delete;
@@ -35,10 +35,10 @@ $db->deleteUser();
     <body>
         <?php include_once("./view/header.php"); ?>
         <section>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#deleteModal">
                 Delete
             </button>
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-sm">
                     <div class="modal-content">
                         <form method="POST">
@@ -57,7 +57,6 @@ $db->deleteUser();
             
         <div>
             <img src="" alt="">
-            <p>Lander sola</p>
             <a href="logout.php">Exit</a>
         </div>
     </section>
