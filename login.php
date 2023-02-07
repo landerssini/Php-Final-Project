@@ -3,6 +3,7 @@
     include_once("./db.php");
 
     if (isset($_POST['submit-login'])) {
+        // $name = $_POST['name'];
         $email = $_POST["email"];
         $password = $_POST["password"];
     }
@@ -21,7 +22,8 @@
             
                 if (password_verify($password, $passwordHashed)) {
                     session_start();
-                    $_SESSION["currentUser"] = $email;
+                    $_SESSION["currentEmail"] = $email;
+                    $_SESSION["currentPass"] = $password;
                     return true;
                 }
             
@@ -32,7 +34,7 @@
     $auth = new Login();
 
     if ($auth->login($email, $password)) {
-        header("location:./userpanel.php");
+        header("location:./form-userpanel.php");
     } else {
         header("location: ./form-login.php"); 
     };

@@ -1,3 +1,6 @@
+<?php
+ include_once("./signup.php"); 
+?>
 <div class="nav-log">
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalLogin"> Login </button>
     <div class="modal fade" id="modalLogin" tabindex="-1" aria-labelledby="modalLoginLabel" aria-hidden="true">
@@ -9,10 +12,9 @@
                 </div>
                 <div class="modal-body">
                     <form action="" method="post" class="gap-2">
-                        <input type="email" id="email-login" name="email" placeholder="Email"
-                            class="form-control form-control-lg">
-                        <input type="password" id="password" name="password" placeholder="Password"
-                            class="form-control form-control-lg">
+                        <input type="email" id="email-login" name="email" placeholder="Email" class="form-control form-control-lg">
+                        <input type="password" name="password" placeholder="Password" class="password form-control form-control-lg">
+                        <i class="bi bi-eye-slash togglePassword"></i>
                         <div>
                             <p>Don't have an account? <a href="./form-signup.php">SignUp</a></p>
                         </div>

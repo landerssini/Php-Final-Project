@@ -5,16 +5,16 @@
         </a>
 
         <?php
-            if (isset($_SESSION["currentUser"])) {
-            echo "<div class='d-flex'>";
-                include_once("modal-edit.php");
-                echo '<a href="./logout.php">Exit</a></div>';
-            }
-            else{
-                echo "<div class='d-flex'>";
-                    include_once("modal-login.php");
-                echo "</div>";
-            }
+            // if (isset($_SESSION["currentEmail"])) {
+            // echo "<div class='d-flex'>";
+            //     include_once("modal-edit.php");
+            //     echo '<a href="./logout.php">Exit</a></div>';
+            // }
+            // else{
+            //     echo "<div class='d-flex'>";
+            //         include_once("modal-login.php");
+            //     echo "</div>";
+            // }
             
         ?>
     </div>

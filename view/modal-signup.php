@@ -11,10 +11,10 @@
                         <div class="modal-body">
                             <form action="" method="POST">
                                 <input type="text" id="user" placeholder="Your name" name="name" placeholder="Username" class="form-control form-control-lg">
-                                <input type="text" id="Email" placeholder="Example@mail.com" name="email"
-                                    placeholder="email" class="form-control form-control-lg">
-                                <input type="password" id="password" placeholder="Password" name="password" class="form-control form-control-lg">
-                        </div>
+                                <input type="text" id="Email" placeholder="Example@mail.com" name="email" placeholder="email" class="form-control form-control-lg">
+                                <input type="password" placeholder="Password" name="password" class="form-control form-control-lg password">
+                                <i class="bi bi-eye-slash togglePassword"></i>
+                            </div>
                         <div class="modal-footer">
                             <input type="submit" value="Sign up" name="send-register">
                             </form>

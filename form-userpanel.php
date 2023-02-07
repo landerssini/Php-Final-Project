@@ -4,9 +4,10 @@ require_once ("./delete.php");
 
 session_start();
 
-if (!isset($_SESSION["currentUser"])) {
-    header("location: index.php?web=privatezone");  
+if (!isset($_SESSION["currentEmail"])) {
+    header("location: index.php?web=privatezone");
 }
+
 
 $db = new Delete;
 $db->deleteUser();
@@ -33,7 +34,14 @@ $db->deleteUser();
 </head>
 
     <body>
-        <?php include_once("./view/header.php"); ?>
+        <?php 
+            include_once("./view/header.php");
+            echo "<div><a href='./logout.php'>Exit</a>";
+            include_once("./view/modal-edit.php");
+            echo "</div>";
+        ?>
+        
+
         <section>
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Delete
@@ -45,7 +53,7 @@ $db->deleteUser();
                             <div class="modal-body">
                                 <p>Are you sure?</p>
                                 <p class="text-center"> You won't be able to revert this!</p>
-                                <input type="hidden" name="currentUser" value ='<?php echo $_SESSION["currentUser"]?>'>
+                                <input type="hidden" name="currentEmail" value ='<?php echo $_SESSION["currentEmail"]?>'>
                                 <input type="button" class="btn btn-outline-primary" data-bs-dismiss="modal" value="Cancel">
                                 <input type="submit" class="btn btn-outline-danger" name="delete" value="Delete">
                             </div>
@@ -53,13 +61,7 @@ $db->deleteUser();
                     </div>
                 </div>
             </div>
-            <input type="text" name="" id="">
-            
-        <div>
-            <img src="" alt="">
-            <p>Lander sola</p>
-            <a href="logout.php">Exit</a>
-        </div>
+          
     </section>
     
 <?php include_once("./view/footer.php"); ?>

@@ -6,7 +6,7 @@
         public function deleteUser(){
             $conexion = parent::connect();
             if(isset($_POST["delete"])) {
-                $user = $_POST["currentUser"];
+                $user = $_POST["currentEmail"];
                 $query = "DELETE FROM users WHERE email = '$user'";
                 $check_query = mysqli_query($conexion, $query);
                 if($check_query) {

@@ -6,9 +6,10 @@
 
     session_start();
 
-    if (isset($_SESSION["currentUser"])) {
-        header("location:userpanel.php");
+    if (isset($_SESSION["currentEmail"])) {
+        header("location:form-userpanel.php");
     }
+
 
 ?>
 
@@ -24,14 +25,20 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./assets/css/styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
     <title>FAVORITE-MOVIES</title>
 </head>
 
 <body>
-    <?php include_once("./view/header.php"); ?>
+    <?php 
+        include_once("./view/header.php"); 
+        include_once("./view/modal-signup.php"); 
+        include_once("./view/modal-login.php");
+    ?>
     <section>
         
             API PELIS
+            
         
     </section>
 

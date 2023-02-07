@@ -2,9 +2,6 @@
 
     include_once("./db.php");
 
-   
-    
-
     class SignUp extends Connection
     {
 
@@ -16,6 +13,7 @@
             if(mysqli_num_rows($check_query) > 0) {
                echo '<p>Email already exist, try again!</p>';
             }else {
+                $_SESSION['currentUser'] = $_POST['name'];
                 $sql = "INSERT INTO users (id, name, email, password) VALUES (NULL,?,?,?)";
                 $query = $conexion->prepare($sql);
                 $query->bind_param('sss', $name, $email, $pass);

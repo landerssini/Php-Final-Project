@@ -4,8 +4,8 @@
 
 session_start();
 
-    if (isset($_SESSION["currentUser"])) {
-        header("location:userpanel.php");
+    if (isset($_SESSION["currentEmail"])) {
+        header("location:form-userpanel.php");
     }
 
 ?>
@@ -27,10 +27,13 @@ session_start();
 </head>
 
 <body>
-    <?php include_once("./view/header.php"); ?>
+    <?php 
+    include_once("./view/header.php"); 
+    include_once("./view/modal-signup.php"); 
+    ?>
     <section>
 
-        <form action="" method="POST" class="form-register gap-2">
+        <!-- <form action="" method="POST" class="form-register gap-2">
             <input type="text" id="user" placeholder="Your name" name="name" placeholder="Username"
                 class="form-control form-control-lg">
             <input type="text" id="Email" placeholder="Example@mail.com" name="email" placeholder="email"
@@ -40,7 +43,7 @@ session_start();
             </div>
             <div class="modal-footer">
                 <input type="submit" value="Sign up" name="send-register" class="btn btn-primary">
-        </form>
+        </form> -->
 
     </section>
 

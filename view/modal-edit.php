@@ -1,7 +1,6 @@
 <?php
     // include_once 'db.php';
     include_once ('update.php');
-    echo $_SESSION["currentUser"];
     $user = new Edit();
     $user->update();
 
@@ -16,10 +15,11 @@
                 </div>
                 <div class="modal-body">
                     <form action="" method="POST">
-                        <input type="text" class="form-control" name="uname" placeholder="name"><br>
-                        <input type="email" class="form-control" name="uemail" placeholder="email"><br>
-                        <input type="password" placeholder="password" class="form-control" name="upassword"><br>
-                        <input type="hidden" name="currentUser" value="<?php echo $_SESSION["currentUser"]?>">
+                        <input type="text" class="form-control" name="name" placeholder="new name" value="<?php echo $_SESSION["currentUser"]?>"><br>
+                        <input type="email" class="form-control" name="email" placeholder="email" value="<?php echo $_SESSION["currentEmail"]?>"><br>
+                        <input type="password" class="form-control password" name="password"  placeholder="password" value="<?php echo $_SESSION["currentPass"]?>"><br>
+                        <i class="bi bi-eye-slash togglePassword"></i>
+                        <input type="hidden" name="currentEmail" value="<?php echo $_SESSION["currentEmail"]?>">
                         <input type="submit" class="btn btn-primary" name="update" value="Update">
                     </form>
                     </div>
