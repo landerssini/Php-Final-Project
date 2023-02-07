@@ -1,8 +1,8 @@
 <?php
-    // include_once 'db.php';
-    include_once ('update.php');
-    $user = new Edit();
-    $user->update();
+// include_once 'db.php';
+include_once('update.php');
+$user = new Edit();
+$user->update();
 
 ?>
 <div class="nav-log">
@@ -14,18 +14,20 @@
                     <img src="logo.jpg" alt="" width="100">
                 </div>
                 <div class="modal-body">
-                    <form action="" method="POST">
-                        <input type="text" class="form-control" name="name" placeholder="new name" value="<?php echo $_SESSION["currentUser"]?>"><br>
-                        <input type="email" class="form-control" name="email" placeholder="email" value="<?php echo $_SESSION["currentEmail"]?>"><br>
-                        <input type="password" class="form-control password" name="password"  placeholder="password" value="<?php echo $_SESSION["currentPass"]?>"><br>
+                    <form method="POST">
+                        <input type="text" class="form-control" name="name" placeholder="new name"
+                            value='<?php echo $_SESSION["currentUser"] ?>'><br>
+                        <input type="email" class="form-control" name="email" placeholder="email"
+                            value='<?php echo $_SESSION["currentEmail"] ?>'><br>
+                        <input type="password" class="form-control password" name="password" placeholder="password"
+                            value='<?php echo $_SESSION["currentPass"] ?>'><br>
                         <i class="bi bi-eye-slash togglePassword"></i>
-                        <input type="hidden" name="currentEmail" value="<?php echo $_SESSION["currentEmail"]?>">
-                        <input type="submit" class="btn btn-primary" name="update" value="Update">
-                    </form>
-                    </div>
-                    <div class="modal-footer">
+                        <input type="hidden" name="currentEmail" value='<?php echo $_SESSION["currentEmail"] ?>'>
                 </div>
+                <div class="modal-footer">
+                    <input type="submit" class="btn btn-primary" name="update" value="Update">
+                </div>
+                </form>
             </div>
         </div>
     </div>
-</div>
