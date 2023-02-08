@@ -4,3 +4,13 @@
     text-align: center;
     width: auto;
 }
+#initialPageDiv {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+    text-align: center;
+    width: auto;
+
+}
+html {
+    color: black;
+}

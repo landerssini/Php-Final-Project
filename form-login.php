@@ -25,7 +25,7 @@ if (isset($_SESSION["currentUser"])) {
 </head>
 
 <body>
-    <?php include_once("./partials/header.php"); ?>
+<?php include_once("./header.php"); ?>
     <section>
         <h3>Log In</h3>
         <form action="login.php" method="post">
@@ -42,6 +42,7 @@ if (isset($_SESSION["currentUser"])) {
         <a href="./form-signup.php">Sign up</a>
     </div>
     <div id="weekTrendMovies">
-        
+
     </div>
+    <div><button id="previousBtn"></button><p id="counterPages"></p><button id="nextBtn"></button></div>
     <?php include_once("./partials/footer.php"); ?>

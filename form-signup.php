@@ -23,7 +23,7 @@ if (isset($_SESSION["currentUser"])) {
 </head>
 
 <body>
-    <?php include_once("./header.php"); ?>
+<?php include_once("./header.php"); ?>
     <section>
 
         <h3>Sign up</h3>

@@ -1,7 +1,8 @@
-<footer>
-    <p>&copy; 2023 Berners-Lee </p>
+<footer class="bg-light text-center text-lg-start fixed-bottom">
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2023 Copyright:
+      <a class="text-dark" href="#">YourMovieLib.com</a>
+    </div>
 </footer>
 <script src="./script.js" defer></script>
-</body>
-
-</html>

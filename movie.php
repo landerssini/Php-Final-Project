@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <?php include_once("./partials/header.php"); ?>
+<?php include_once("./header.php"); ?>
     <section>
         <div>
             <input type="text" id="searchBar">

@@ -23,7 +23,7 @@ if (!isset($_SESSION["currentUser"])) {
 </head>
 
 <body>
-    <?php include_once("./partials/header.php"); ?>
+<?php include_once("./header.php"); ?>
     <section>
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
             New

@@ -19,9 +19,10 @@ error_reporting(E_ALL);
             $sql = "SELECT * FROM users WHERE email = '$email'";
             $answer = mysqli_query($conexion, $sql);
             $passwordHashed = mysqli_fetch_array($answer)["password"];
-            
+            // $name=$answer["name"];
             if (password_verify($password, $passwordHashed)) {
                 session_start();
+                // $_SESSION["currentName"] = $name;
                 $_SESSION["currentUser"] = $email;
                 return true;
             }
