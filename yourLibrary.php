@@ -10,7 +10,7 @@ if (!isset($_SESSION["currentUser"])) {
     while ($movieList = mysqli_fetch_array($query)) {
         $movieIds[] = $movieList['id'];
     }
-
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,7 +32,7 @@ if (!isset($_SESSION["currentUser"])) {
     <?php include_once("./header.php"); ?>
     <div id="myLibrary">
 <div>
-    
+
 </div>
     </div>
     <?php include_once("./footer.php"); ?>
