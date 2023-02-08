@@ -39,7 +39,7 @@ echo $_SESSION["currentEmail"];
                     <label for="radio4">★</label>
                     <input id="radio5" type="radio" name="Review" value="1" hidden>
                     <label for="radio5">★</label>
-                    <input id="radio0" type="radio" name="Review" value="0" hidden checked>
+                    <!-- <input id="radio0" type="radio" name="Review" value="0" hidden checked> -->
                     <textarea name="Comments" rows="10" cols="50" id="Comments" required>Write something here</textarea>
                     <input type="submit" value="Save">
                 </div>

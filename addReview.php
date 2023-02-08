@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -11,18 +12,25 @@ $rating = $_POST["Review"];
 $comment = $_POST["Comments"];
 $conne = new Connection();
 $conn = $conne->connect();
-$sql = "UPDATE movies SET user_email='$user_id', movie_id='$movie_id', review='$rating', comments = '$comment' WHERE user_email='$user_id' AND movie_id='$movie_id'";
-if(mysqli_query($conn, $sql)){
-    header("location: movie.php?movie_id=".$movie_id);
+
+$query = "SELECT * FROM movies WHERE user_email='$user_id' AND movie_id='$movie_id'";
+$result = mysqli_query($conn, $query);
+
+if (mysqli_num_rows($result) > 0) {
+    $sql = "UPDATE movies SET review='$rating', comments = '$comment' WHERE user_email='$user_id' AND movie_id='$movie_id'";
+    if(mysqli_query($conn, $sql)){
+        header("location: movie.php?movie_id=".$movie_id);
+    } else {
+        header("location: movie.php?error=queryerror");
+    }
 } else {
     $sql = "INSERT INTO movies (user_email ,movie_id, review, comments) VALUES ('$user_id','$movie_id','$rating','$comment')";
     if(mysqli_query($conn, $sql)){
         header("location: movie.php?movie_id=".$movie_id);
     } else {
-        header("location: movie.php?error=queryerror");}}
-
-
-
+        header("location: movie.php?error=queryerror");
+    }
+}
 
 // class UserActions extends Connection  {
 
