@@ -3,12 +3,12 @@
     padding: 0;
     box-sizing: border-box;
 }
-body{
+/* body{
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-}
+} */
 .nav-log{
     padding:1rem;
     display: flex;
@@ -28,9 +28,15 @@ form{
 }
 #searchBarResults{
     display: grid;
-    grid-template-columns: auto auto auto auto auto auto;
+    grid-template-columns: auto;
     text-align: center;
     width: auto;
+    /* border: black solid 17px;
+    max-width: 50vw;
+    overflow-y: scroll;
+    margin: 0 auto;
+    height: 400px; */
+
 }
 #initialPageDiv {
     display: grid;
@@ -46,3 +52,53 @@ form i {
 html {
     color: black;
 }
+.hidden{
+    display:none;
+}
+
+#formRating {
+    width: 250px;
+    margin: 0 auto;
+    height: 50px;
+  }
+  
+  #formRating div {
+    text-align: center;
+  }
+  
+  #formRating label {
+    font-size: 20px;
+  }
+  
+  input[type="radio"] {
+    display: none;
+  }
+  
+  label {
+    color: grey;
+  }
+  
+  .clasificacion {
+    direction: rtl;
+    unicode-bidi: bidi-override;
+  }
+  
+  label:hover,
+  label:hover ~ label {
+    color: orange;
+  }
+  
+  input[type="radio"]:checked ~ label {
+    color: orange;
+  }
+  #Comments{
+    margin:0 auto;
+  }
+  .movieListYL{
+    width:fit-content;
+    text-align: center;
+  }
+  #myLibrary{
+    display:grid;
+    grid-template-columns: auto auto auto auto ;
+  }

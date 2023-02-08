@@ -5,4 +5,3 @@
       <a class="text-dark" href="#">YourMovieLib.com</a>
     </div>
 </footer>
-<script src="./script.js" defer></script>

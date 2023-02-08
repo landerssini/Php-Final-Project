@@ -37,5 +37,5 @@ if ($auth->login($email, $password)) {
     $_SESSION["currentPass"] = $password;
     header("location:./index.php?session=active");
 } else {
-    header("location: ./index.php?error=error");
+    header("location: ./index.php?error=badcredentials");
 };

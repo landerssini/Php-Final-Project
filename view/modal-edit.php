@@ -15,12 +15,9 @@ $user->update();
                 </div>
                 <div class="modal-body">
                     <form method="POST">
-                        <input type="text" class="form-control" name="name" placeholder="new name"
-                            value='<?php echo $_SESSION["currentUser"] ?>'><br>
-                        <input type="email" class="form-control" name="email" placeholder="email"
-                            value='<?php echo $_SESSION["currentEmail"] ?>'><br>
-                        <input type="password" class="form-control password" name="password" placeholder="password"
-                            value='<?php echo $_SESSION["currentPass"] ?>'><br>
+                        <input type="text" class="form-control" name="name" placeholder="new name" value='<?php echo $_SESSION["currentUser"] ?>'><br>
+                        <input type="email" class="form-control" name="email" placeholder="email" value='<?php echo $_SESSION["currentEmail"] ?>' readonly><br>
+                        <input type="password" class="form-control password" name="password" placeholder="password" value='<?php echo $_SESSION["currentPass"] ?>'><br>
                         <i class="bi bi-eye-slash togglePassword"></i>
                         <input type="hidden" name="currentEmail" value='<?php echo $_SESSION["currentEmail"] ?>'>
                 </div>
@@ -31,3 +28,4 @@ $user->update();
             </div>
         </div>
     </div>
+</div>

@@ -1,14 +1,14 @@
 <?php
-    if(isset($_POST['email']) && isset($_POST['password'])){
-        require_once("login.php");
-        include_once('update.php');
-    }
+    // if(isset($_POST['email']) && isset($_POST['password'])){
+    //     require_once("login.php");
+    //     include_once('update.php');
+    // }
 
-    // session_start();
+    // // session_start();
 
-    if (isset($_SESSION["currentEmail"])) {
-        header("location:index.php");
-    }
+    // if (isset($_SESSION["currentEmail"])) {
+    //     header("location:index.php");
+    // }
 ?>
 <div class="nav-log">
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalLogin"> Login </button>
@@ -16,7 +16,7 @@
         <div class="modal-dialog modal-dialog-centered modal-sm">
             <div class="modal-content">
                 <div class="modal-header">
-                    <img src="../logo.jpg" alt="" width="100">
+                    
                     <h3>Log In</h3>
                 </div>
                 <div class="modal-body">
