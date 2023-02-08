@@ -35,7 +35,7 @@ $auth = new Login();
 if ($auth->login($email, $password)) {
     $_SESSION["currentEmail"] = $email;
     $_SESSION["currentPass"] = $password;
-    header("location:./index.php");
+    header("location:./index.php?session=active");
 } else {
     header("location: ./index.php?error=error");
 };

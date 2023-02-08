@@ -1,3 +1,10 @@
+<?php
+include_once('./delete.php');
+$db = new Delete;
+$db->deleteUser();
+
+?>
+
 <section>
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Delete
@@ -5,7 +12,7 @@
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-sm">
                 <div class="modal-content">
-                    <form method="POST">
+                    <form action="" method="POST">
                         <div class="modal-body">
                             <p>Are you sure?</p>
                             <p class="text-center"> You won't be able to revert this!</p>

@@ -1,3 +1,8 @@
+<?php 
+   include_once("./signup.php");
+   include_once("./db.php");
+?>
+
 <div class="nav-log">
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalSignUp"> Sign Up
     </button>

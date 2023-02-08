@@ -5,7 +5,6 @@
   private $password;
   private $db_name;
 
-  public $connection;
 
     public function __construct(){
       $this->host = 'localhost';

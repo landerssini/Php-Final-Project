@@ -37,11 +37,11 @@ form{
     grid-template-columns: auto auto auto auto auto auto;
     text-align: center;
     width: auto;
-
+/* 
 form i {
     margin-left: -30px;
     cursor: pointer;
-}
+} */
 }
 html {
     color: black;

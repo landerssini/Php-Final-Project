@@ -1,5 +1,14 @@
 <?php
-// include_once("./signup.php");
+    if(isset($_POST['email']) && isset($_POST['password'])){
+        require_once("login.php");
+        include_once('update.php');
+    }
+
+    // session_start();
+
+    if (isset($_SESSION["currentEmail"])) {
+        header("location:index.php");
+    }
 ?>
 <div class="nav-log">
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalLogin"> Login </button>

@@ -1,12 +1,12 @@
 <?php
-require_once("./db.php");
-require_once("./delete.php");
+// require_once("./db.php");
+// require_once("./delete.php");
 
-session_start();
+// session_start();
 
-if (!isset($_SESSION["currentEmail"])) {
-    header("location: index.php?web=privatezone");
-}
+// if (!isset($_SESSION["currentEmail"])) {
+//     header("location: index.php?web=privatezone");
+// }
 
 
 $db = new Delete;
@@ -33,10 +33,10 @@ $db->deleteUser();
 
 <body>
     <?php
-    include_once("./view/header.php");
-    echo "<div><a href='./logout.php'>Exit</a>";
-    include_once("./view/modal-edit.php");
-    echo "</div>";
+    // include_once("./view/header.php");
+    // echo "<div><a href='./logout.php'>Exit</a>";
+    // include_once("./view/modal-edit.php");
+    // echo "</div>";
     ?>
 
 
@@ -62,4 +62,4 @@ $db->deleteUser();
 
     </section>
 
-    <?php include_once("./view/footer.php"); ?>
+    <?php //include_once("./view/footer.php"); ?>

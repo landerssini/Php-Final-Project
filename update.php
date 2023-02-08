@@ -1,5 +1,5 @@
 <?php
-include("db.php");
+include_once("./db.php");
 class Edit extends Connection{
 
         public function update(){

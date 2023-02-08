@@ -1,14 +1,14 @@
-<?php
-    if(isset($_POST['email']) && isset($_POST['password'])){
-        require_once("login.php");
-        include_once ('update.php');
-    }
+<!-- <?php
+    // if(isset($_POST['email']) && isset($_POST['password'])){
+    //     require_once("login.php");
+    //     include_once ('update.php');
+    // }
 
-    session_start();
+    // // session_start();
 
-    if (isset($_SESSION["currentEmail"])) {
-        header("location:form-userpanel.php");
-    }
+    // if (isset($_SESSION["currentEmail"])) {
+    //     header("location:form-userpanel.php");
+    // }
 
 
 ?>
@@ -32,9 +32,9 @@
 
 <body>
     <?php 
-        include_once("./view/header.php"); 
-        include_once("./view/modal-signup.php"); 
-        include_once("./view/modal-login.php");
+        // include_once("./view/header.php"); 
+        // include_once("./view/modal-signup.php"); 
+        // include_once("./view/modal-login.php");
     ?>
     <section>
         
@@ -50,4 +50,6 @@
 
     </div>
     <div><button id="previousBtn"></button><p id="counterPages"></p><button id="nextBtn"></button></div>
-    <?php include_once("./partials/footer.php"); ?>
+    <?php
+    // include_once("./partials/footer.php"); 
+    // ?> -->

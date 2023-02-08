@@ -1,13 +1,13 @@
 <?php
-require "db.php";
-session_start();
+// require "db.php";
+// session_start();
 
-if (!isset($_SESSION["currentUser"])) {
-    header("location: index.php?web=privatezone");
-}
+// if (!isset($_SESSION["currentUser"])) {
+//     header("location: index.php?web=privatezone");
+// }
 
 ?>
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -22,9 +22,9 @@ if (!isset($_SESSION["currentUser"])) {
     <title>FAVORITE-MOVIES</title>
 </head>
 
-<body>
-<?php include_once("./header.php"); ?>
-    <section>
+<body> -->
+<?php //include_once("./header.php"); ?>
+    <!-- <section>
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
             New
         </button>
@@ -90,6 +90,6 @@ if (!isset($_SESSION["currentUser"])) {
         <button>Previous</button>
         <div></div>
         <button>Next</button>
-    </div>
+    </div> -->
 
-    <?php include_once("footer.php"); ?>
+    <?php //include_once("footer.php"); ?>
