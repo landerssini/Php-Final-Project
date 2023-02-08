@@ -6,6 +6,7 @@ searchBarJS.addEventListener('input', refreshList)
 function refreshList() {
   searchBarResults.innerHTML = ""
   let searchQuery = searchBarJS.value
+  if (!searchQuery==""){
   fetch(`https://api.themoviedb.org/3/search/movie?api_key=c8e111a0d93537cc581d6268be26297b&language=es-ES&query=${searchQuery}&page=1&include_adult=false`)
     .then(response => response.json())
     .then(data =>
@@ -23,7 +24,7 @@ function refreshList() {
       </div></a>`
 
       })
-    )
+    )}
 
 }
 if (window.location.pathname.includes("/movie.php")) {
