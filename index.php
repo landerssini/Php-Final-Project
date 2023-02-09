@@ -6,7 +6,6 @@
 //  require_once("./delete.php");
 session_start();
 
-
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +24,9 @@ session_start();
 </head>
 
 <body>
-<?php include_once("./header.php"); ?>
+
+<?php echo '<div id="indexPage"></div>';
+include_once("./header.php"); ?>
   <div id="initialPageDiv">
 
   </div>

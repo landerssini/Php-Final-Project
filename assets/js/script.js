@@ -7,7 +7,7 @@ togglePassword.addEventListener("click", function () {
     this.classList.toggle("bi-eye");
 });
 let searchBarJS = document.querySelector("#searchBar")
-let searchBarResults = document.querySelector("#searchBarResults")
+let searchBarResults = document.querySelector("#searchBarResultsP")
 
 
 searchBarJS.addEventListener('input', refreshList)
@@ -15,7 +15,7 @@ function refreshList() {
     searchBarResults.innerHTML = ""
     let searchQuery = searchBarJS.value
     if (!searchQuery == "") {
-        searchBarResults.classList.remove = "hidden"
+        searchBarResults.style.display = "hidden"
         fetch(`https://api.themoviedb.org/3/search/movie?api_key=c8e111a0d93537cc581d6268be26297b&language=es-ES&query=${searchQuery}&page=1&include_adult=false`)
             .then(response => response.json())
             .then(data =>
@@ -26,7 +26,7 @@ function refreshList() {
                         var posterPath = "https://image.tmdb.org/t/p/original/" + movie["poster_path"]
                     }
                     else { var posterPath = "assets/Skeleton.png" }
-                    searchBarResults.innerHTML += `<a href="./movie.php?movie_id=${movieId}" style="text-decoration:none;"> <div class="card text-center" style="width: 9rem; ">
+                    searchBarResults.innerHTML += `<a href="./movie.php?movie_id=${movieId}" style="text-decoration:none;"> <div class="card text-center resultSearch" style="width: 9rem; ">
       <img src="${posterPath}" class="card-img-top" alt="${title} poster">
       <div class="card-body">
       <h5 class="card-title">${title}</h5></div>
@@ -132,10 +132,10 @@ if (window.location.pathname.includes("/yourLibrary.php")) {
         fetch(`https:api.themoviedb.org/3/movie/${idMovie}?api_key=c8e111a0d93537cc581d6268be26297b&language=es-ES`)
             .then(response => response.json())
             .then(data => {
-                posterPath.innerHTML += `<img src="https://image.tmdb.org/t/p/original/${data["poster_path"]}" style="width:270px;" alt="${data["title"]} poster">`
+                posterPath.innerHTML += `<a href="movie.php?movie_id=${data["id"]}"><img src="https://image.tmdb.org/t/p/original/${data["poster_path"]}" style="width:270px;" alt="${data["title"]} poster">`
                 titleMovie.innerHTML += `<p>${data["title"]}</p>`
                 review.innerHTML += `<p>${reviewM}</p>`
-                commentDiv.innerHTML += `<p>${commentM}</p>`
+                commentDiv.innerHTML += `<p>${commentM}</p></a>`
             }
             )
 
@@ -149,7 +149,7 @@ window.addEventListener('load', loadPage)
 let initialPageDiv = document.querySelector("#initialPageDiv")
 
 function loadPage() {
-    if (window.location.pathname.includes("/index.php")) {
+    if (document.getElementById("indexPage")!=null) {
         fetch("https://api.themoviedb.org/3/movie/top_rated?api_key=c5fe6d1a7a37ade55ce430078dfb6628&language=es-ES&page=1")
             .then(response => response.json())
             .then(data =>
