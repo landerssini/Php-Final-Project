@@ -1,14 +1,14 @@
 <?php
-// if(isset($_POST['email']) && isset($_POST['password'])){
-//     require_once("login.php");
-//     include_once('update.php');
-// }
+if(isset($_POST['email']) && isset($_POST['password'])){
+    require_once("login.php");
+    include_once('update.php');
+}
 
-// // session_start();
+// session_start();
 
-// if (isset($_SESSION["currentEmail"])) {
-//     header("location:index.php");
-// }
+if (isset($_SESSION["currentEmail"])) {
+    header("location:index.php");
+}
 
 
 ?>
@@ -22,7 +22,7 @@
                         <h3>Log In</h3>
                     </div>
                     <div class="modal-body">
-                        <input type="hidden" name="name" value='<?php echo $_SESSION["currentName"] ?>'>>
+                        <input type="hidden" name="name" value='<?php echo $_SESSION["currentName"] ?>'>
                         <label for="email" class="formulario__label">Nombre</label>
                         <input type="email" id="email-login" name="correo" placeholder="Email"
                             class="form-control form-control-lg formulario__input">

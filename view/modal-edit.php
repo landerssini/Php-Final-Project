@@ -11,7 +11,7 @@ $conexion = $conn->connect();
 $userName = $_SESSION["currentEmail"];
 $sql = "SELECT * FROM users WHERE email = '$userName'";
 $answer = mysqli_query($conexion, $sql);
-$_SESSION["currentUsername"]=(mysqli_fetch_array($answer)["name"])
+$_SESSION["currentUsername"] = (mysqli_fetch_array($answer)["name"]);
 
 ?>
 <div class="nav-log">
@@ -26,7 +26,7 @@ $_SESSION["currentUsername"]=(mysqli_fetch_array($answer)["name"])
                     <div class="modal-body">
                         <label for="name" class="formulario__label">Nombre</label>
                         <input type="text" class="form-control formulario__input" name="nombre" placeholder="Your Name"
-                            value='<?php echo $_SESSION["currentName"] ?>'>
+                            value='<?php echo $_SESSION["currentUsername"] ?>'>
                         <label for="email" class="formulario__label">Email</label>
                         <input type="email" class="form-control formulario__input" name="correo" placeholder="Email"
                             value='<?php echo $_SESSION["currentEmail"] ?>'>

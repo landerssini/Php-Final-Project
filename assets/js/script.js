@@ -4,13 +4,12 @@ const searchBarJS = document.querySelector("#searchBar")
 const searchBarResults = document.querySelector("#searchBarResults")
 
 
-togglePassword.addEventListener("click", function () {
-    const type = password.getAttribute("type") === "password" ? "text" : "password";
-    password.setAttribute("type", type);
-    this.classList.toggle("bi-eye");
-});
-let searchBarJS = document.querySelector("#searchBar")
-let searchBarResults = document.querySelector("#searchBarResultsP")
+// togglePassword.addEventListener("click", function () {
+//     const type = password.getAttribute("type") === "password" ? "text" : "password";
+//     password.setAttribute("type", type);
+//     this.classList.toggle("bi-eye");
+// });
+
 
 
 searchBarJS.addEventListener('input', refreshList)

@@ -57,10 +57,6 @@ include_once("./db.php");
                             <p class="formulario__input-error">Ambas contraseñas deben ser iguales.</p>
                         </div>
 
-
-
-    
-
                     </div>
                     <div class="modal-footer">
                         <div class="formulario__grupo formulario__grupo-btn-enviar">

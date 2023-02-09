@@ -32,7 +32,7 @@
     //     $db = new Connection;
     //     $db->connect();
     //     $prepare = mysqli_prepare($db->conn, 'SELECT * FROM users WHERE email = ?');
-    //     $prepare->bind_param('i', $email);
+    //     $prepare->bind_param('i', );
     //     $prepare->execute();
     //     $response = $prepare->get_result();
     //     return $response->fetch_object(User::class);
@@ -80,3 +80,6 @@ public function update() {
     $prepare->bind_param($this->name, $this->email, $this->password);
     $prepare->execute(); 
 }
+
+
+
