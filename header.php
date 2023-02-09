@@ -32,10 +32,12 @@
             }
             ?>
 
-            
+
         </div>
     </nav>
-    <div id="searchBarResults" ></div>
+    <div id="searchBarResultsP">
+        <div id="searchBarResults"></div>
+    </div>
 </header>
 
 

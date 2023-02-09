@@ -1,9 +1,17 @@
 <?php
-// include_once 'db.php';
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+include_once ('db.php');
 include_once('update.php');
-$user = $_SESSION["currentEmail"];
-$db = new Edit();
-$db->update($user);
+$user = new Edit();
+$user->update();
+$conn = new connection();
+$conexion = $conn->connect();
+$userName = $_SESSION["currentEmail"];
+$sql = "SELECT * FROM users WHERE email = '$userName'";
+$answer = mysqli_query($conexion, $sql);
+$_SESSION["currentUsername"]=(mysqli_fetch_array($answer)["name"])
 
 ?>
 <div class="nav-log">

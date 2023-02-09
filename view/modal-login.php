@@ -13,7 +13,7 @@
 
 ?>
 <div class="nav-log">
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalLogin"> Login </button>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalLogin" data-backdrop="false"> Login </button>
     <div class="modal fade" id="modalLogin" tabindex="-1" aria-labelledby="modalLoginLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-sm">
             <div class="modal-content modal__form-color">

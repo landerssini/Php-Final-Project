@@ -19,7 +19,7 @@ session_start();
 
 <body>
     <?php include_once("./header.php"); ?>
-    <section>
+    <section id="movieSection">
         <div <?php $id = $_GET["movie_id"];
                 echo 'movie_id="' . $id . '"' ?>>
             <div id="mainInfo"></div>

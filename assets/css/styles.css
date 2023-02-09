@@ -32,10 +32,26 @@ h3 {
     max-width: 500px;
     margin: 0 auto;
 }
+
 .modal-footer{
     border:none;
 }
+.modal-backdrop{
+  display:none;
+}
 #searchBarResults{
+  display: grid;
+  grid-template-columns: auto;
+  text-align: center;
+  width: auto;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  text-align: center;
+  width: auto;
+  justify-content: center;
+  overflow-y: scroll;
+  gap: 1rem;
+  height: 32rem;
     display: grid;
     grid-template-columns: auto auto auto auto auto auto auto;
     background: gre;
@@ -47,6 +63,29 @@ h3 {
     margin: 0 auto;
     height: 400px;
 
+}
+header{
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+}
+.card{
+  height: 100%;
+  text-decoration: none;
+}
+.card H5{
+  color:black;
+}
+#searchBarResultsP {
+  width: fit-content;
+    padding: 1rem 3rem 3rem 3rem;
+    height: 34rem;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    background-color: #353e46;
+    transform: translate(-50%, 0);
+    border-radius: 1rem;
 }
 #initialPageDiv {
     display: grid;
@@ -111,6 +150,8 @@ label:hover ~ label {
   display:grid;
   grid-template-columns: auto auto auto auto ;
 } 
+
+  
 
   /* Form validation Styles */-------------------------------------------------------------------------------------
 

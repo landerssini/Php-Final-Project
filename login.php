@@ -20,21 +20,18 @@ class Login extends Connection
         $sql = "SELECT * FROM users WHERE email = '$email'";
         $answer= mysqli_query($connection, $sql);
         $passwordHashed = mysqli_fetch_array($answer)["password"];
-        $thisName = mysqli_fetch_array($answer)["name"];
-
-
+        (mysqli_fetch_array($answer)["name"]);
+        
         if (password_verify($password, $passwordHashed)) {
-            session_start();
-            $_SESSION["currentName"] = $thisName;
-            $_SESSION["currentEmail"] = $email;
-            $_SESSION["currentPass"] = $password;
             return true;
         }
     }
 }
 $auth = new Login();
 
-if ($auth->login($name ,$email, $password)) {
+if ($auth->login($email, $password)) {
+    session_start();
+    $_SESSION["currentEmail"] = $email;
     $_SESSION["currentPass"] = $password;
     $_SESSION["currentName"] = $thisName;
     $_SESSION["currentEmail"] = $email;

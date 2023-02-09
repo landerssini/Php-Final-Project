@@ -4,12 +4,13 @@ const searchBarJS = document.querySelector("#searchBar")
 const searchBarResults = document.querySelector("#searchBarResults")
 
 
-// togglePassword.addEventListener("click", function () {
-//     const type = password.getAttribute("type") === "password" ? "text" : "password";
-//     password.setAttribute("type", type);
-//     this.classList.toggle("bi-eye");
-// });
-// 
+togglePassword.addEventListener("click", function () {
+    const type = password.getAttribute("type") === "password" ? "text" : "password";
+    password.setAttribute("type", type);
+    this.classList.toggle("bi-eye");
+});
+let searchBarJS = document.querySelector("#searchBar")
+let searchBarResults = document.querySelector("#searchBarResultsP")
 
 
 searchBarJS.addEventListener('input', refreshList)
@@ -17,7 +18,7 @@ function refreshList() {
     searchBarResults.innerHTML = ""
     let searchQuery = searchBarJS.value
     if (!searchQuery == "") {
-        searchBarResults.classList.remove = "hidden"
+        searchBarResults.style.display = "hidden"
         fetch(`https://api.themoviedb.org/3/search/movie?api_key=c8e111a0d93537cc581d6268be26297b&language=es-ES&query=${searchQuery}&page=1&include_adult=false`)
             .then(response => response.json())
             .then(data =>
@@ -50,8 +51,61 @@ if (window.location.pathname.includes("/movie.php")) {
         .then(response => response.json())
         .then(data => {
             console.log(data)
-            mainInfo.innerHTML += `<img src="https://image.tmdb.org/t/p/original/${data["poster_path"]}" style="width:270px;" alt="${data["title"]} poster"><h3>${data["title"]}</h3><h3>${data["original_title"]}</h3><h3>${data["release_date"]}</h3><h4>${data["status"]}</h4><h5>${data["runtime"]}min</h5>`
-            sinopsis.innerHTML += `<p>${data["overview"]}</p>`
+            let genres = data.genres;
+            let genresString = [];
+            genres.forEach(element => {
+                let name = element.name
+                genresString.push(name)
+            })
+            let finalGenres = genresString.toString();
+            let companies = data.production_companies;
+            let companiesString = [];
+            companies.forEach(element => {
+                let nameComp = element.name
+                companiesString.push(nameComp)
+            })
+            let finalCompanies = companiesString.toString();
+            mainInfo.innerHTML += `<div class="container">
+            <div class="row">
+                <h1 class="d-flex justify-content-center p-5">${data["title"]}</h1>
+                <div class="col-6" id="poster">
+                <img class="rounded mx-auto d-block" src="https://image.tmdb.org/t/p/original/${data["poster_path"]}" style="width:360px;" alt="${data["title"]} poster">
+                </div>
+                <div class="col-3" id="filmInfo">
+                <h3 class="d-flex justify-content-center">Film Info:</h3>
+                   <ul class="list-group list-group-flush mt-5">
+                      <li class="list-group-item">Genres:       ${finalGenres}.</li>
+                      <li class="list-group-item">Release date: ${data["release_date"]}.</li>
+                      <li class="list-group-item">Revenue: ${data["revenue"]}$. </li>
+                      <li class="list-group-item">Duration: ${data["runtime"]} minutes. </li>
+                      <li class="list-group-item">Vote average: ${data["vote_average"]}. </li>
+                  </ul>
+                </div>
+                <div class="col-3" id="production">
+                  <h3 class="d-flex justify-content-center">Production:</h3>
+                  <ul class="list-group list-group-flush mt-5">
+                    <li class="list-group-item">Original Language: ${data["original_language"]}.</li>
+                    <li class="list-group-item">Budget: ${data["budget"]}$.</li>
+                    <li class="list-group-item">Production companies: ${finalCompanies}.</li>
+                </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6" id="Sinopsis">
+                    <div class="d-flex justify-content-center p-5"></div>
+                    <h3 class="d-flex align-self-xl-start ml-4">Sinopsis:</h3>
+                    <p>${data["overview"]}</p>
+                </div>
+                <div class="col-6" id="YourOpinion">
+                
+                    <h3 class="d-flex justify-content-center">Your Opinion:</h3>
+
+                </div>
+                
+                
+            </div>
+          </div>`
+            
         }
         )
 }
@@ -72,10 +126,10 @@ if (window.location.pathname.includes("/yourLibrary.php")) {
         fetch(`https:api.themoviedb.org/3/movie/${idMovie}?api_key=c8e111a0d93537cc581d6268be26297b&language=es-ES`)
             .then(response => response.json())
             .then(data => {
-                posterPath.innerHTML += `<img src="https://image.tmdb.org/t/p/original/${data["poster_path"]}" style="width:270px;" alt="${data["title"]} poster">`
+                posterPath.innerHTML += `<a href="movie.php?movie_id=${data["id"]}"><img src="https://image.tmdb.org/t/p/original/${data["poster_path"]}" style="width:270px;" alt="${data["title"]} poster">`
                 titleMovie.innerHTML += `<p>${data["title"]}</p>`
                 review.innerHTML += `<p>${reviewM}</p>`
-                commentDiv.innerHTML += `<p>${commentM}</p>`
+                commentDiv.innerHTML += `<p>${commentM}</p></a>`
             }
             )
 
@@ -89,7 +143,7 @@ window.addEventListener('load', loadPage)
 let initialPageDiv = document.querySelector("#initialPageDiv")
 
 function loadPage() {
-    if (window.location.pathname.includes("/index.php")) {
+    if (document.getElementById("indexPage")!=null) {
         fetch("https://api.themoviedb.org/3/movie/top_rated?api_key=c5fe6d1a7a37ade55ce430078dfb6628&language=es-ES&page=1")
             .then(response => response.json())
             .then(data =>
