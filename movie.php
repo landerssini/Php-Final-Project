@@ -25,7 +25,12 @@ session_start();
             <div id="mainInfo"></div>
             <div id="sinopsis"></div>
             <div id="comments"></div>
-            <form action="addReview.php" method="POST" id="formRating">
+            
+                
+            <h3 class="d-flex justify-content-center">Your Opinion:</h3>
+
+                
+            <form action="addReview.php" class="ml-5" method="POST" id="formRating">
                 <div class="clasificacion">
                     <input id="ID" type="text" name="ID" value="<?php echo $id ?>" hidden>
                     <input id="radio1" type="radio" name="Review" value="5" hidden>
