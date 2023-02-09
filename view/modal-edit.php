@@ -1,8 +1,17 @@
 <?php
-// include_once 'db.php';
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+include_once ('db.php');
 include_once('update.php');
 $user = new Edit();
 $user->update();
+$conn = new connection();
+$conexion = $conn->connect();
+$userName = $_SESSION["currentEmail"];
+$sql = "SELECT * FROM users WHERE email = '$userName'";
+$answer = mysqli_query($conexion, $sql);
+$_SESSION["currentUsername"]=(mysqli_fetch_array($answer)["name"])
 
 ?>
 <div class="nav-log">
@@ -15,9 +24,9 @@ $user->update();
                 </div>
                 <div class="modal-body">
                     <form method="POST">
-                        <input type="text" class="form-control" name="name" placeholder="new name" value='<?php echo $_SESSION["currentUser"] ?>'><br>
-                        <input type="email" class="form-control" name="email" placeholder="email" value='<?php echo $_SESSION["currentEmail"] ?>' readonly><br>
+                        <input type="text" class="form-control" name="name" placeholder="new name" value='<?php echo $_SESSION["currentUsername"] ?>'><br>
                         <input type="password" class="form-control password" name="password" placeholder="password" value='<?php echo $_SESSION["currentPass"] ?>'><br>
+                        <input type="email" class="form-control" name="email" placeholder="email" value='<?php echo $_SESSION["currentEmail"] ?>' readonly><br>
                         <i class="bi bi-eye-slash togglePassword"></i>
                         <input type="hidden" name="currentEmail" value='<?php echo $_SESSION["currentEmail"] ?>'>
                 </div>

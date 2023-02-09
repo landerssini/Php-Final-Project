@@ -14,6 +14,7 @@ class Edit extends Connection{
                     echo "<p>Cambiado correctamente</p>";
                     $_SESSION["currentUser"] = $name_user;
                     $_SESSION["currentEmail"] = $email;
+                    $_SESSION["currentPass"] = $_POST['password'];
                 }else{
                     echo '<p>Holaaa!</p>';
                 }
