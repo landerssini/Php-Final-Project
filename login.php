@@ -5,8 +5,8 @@
 include_once("./db.php");
 
 if (isset($_POST['submit-login'])) {
-    // $name = $_POST['name'];
-    $email = $_POST["email"];
+    $email = $_POST["name"];
+    $email = $_POST["correo"];
     $password = $_POST["password"];
 }
 
@@ -14,16 +14,18 @@ if (isset($_POST['submit-login'])) {
 class Login extends Connection
 {
 
-    public function login($email, $password)
+    public function login($name, $email, $password)
     {
-        $conexion = parent::connect();
+        $connection = parent::connect();
         $sql = "SELECT * FROM users WHERE email = '$email'";
-        $answer = mysqli_query($conexion, $sql);
+        $answer= mysqli_query($connection, $sql);
         $passwordHashed = mysqli_fetch_array($answer)["password"];
+        $thisName = mysqli_fetch_array($answer)["name"];
 
 
         if (password_verify($password, $passwordHashed)) {
             session_start();
+            $_SESSION["currentName"] = $thisName;
             $_SESSION["currentEmail"] = $email;
             $_SESSION["currentPass"] = $password;
             return true;
@@ -32,9 +34,10 @@ class Login extends Connection
 }
 $auth = new Login();
 
-if ($auth->login($email, $password)) {
-    $_SESSION["currentEmail"] = $email;
+if ($auth->login($name ,$email, $password)) {
     $_SESSION["currentPass"] = $password;
+    $_SESSION["currentName"] = $thisName;
+    $_SESSION["currentEmail"] = $email;
     header("location:./index.php?session=active");
 } else {
     header("location: ./index.php?error=badcredentials");

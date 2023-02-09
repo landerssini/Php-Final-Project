@@ -13,7 +13,7 @@
             if(mysqli_num_rows($check_query) > 0) {
                echo '<p>Email already exist, try again!</p>';
             }else {
-                $_SESSION['currentUser'] = $_POST['name'];
+                $_SESSION['currentUser'] = $_POST['nombre'];
                 $sql = "INSERT INTO users (id, name, email, password) VALUES (NULL,?,?,?)";
                 $query = $conexion->prepare($sql);
                 $query->bind_param('sss', $name, $email, $pass);
@@ -21,15 +21,15 @@
             }
 
         }
-
+        
     }
 
     if (isset($_POST["send-register"])) {
-        if (empty($_POST["name"]) || empty($_POST["email"]) || empty($_POST["password"])) {
+        if (empty($_POST["nombre"]) || empty($_POST["correo"]) || empty($_POST["password"])) {
             echo "<p>Fields cannot be left empty.</p>";
         } else {
-            $name_user = $_POST['name'];
-            $email = $_POST['email'];
+            $name_user = $_POST['nombre'];
+            $email = $_POST['correo'];
             $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
             $user = new SignUp();
             if ($user->register($name_user, $email, $password)) {

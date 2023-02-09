@@ -1,13 +1,15 @@
-const togglePassword = document.querySelector(".togglePassword");
+// const togglePassword = document.querySelector(".togglePassword");
 const password = document.querySelector(".password");
+const searchBarJS = document.querySelector("#searchBar")
+const searchBarResults = document.querySelector("#searchBarResults")
 
-togglePassword.addEventListener("click", function () {
-    const type = password.getAttribute("type") === "password" ? "text" : "password";
-    password.setAttribute("type", type);
-    this.classList.toggle("bi-eye");
-});
-let searchBarJS = document.querySelector("#searchBar")
-let searchBarResults = document.querySelector("#searchBarResults")
+
+// togglePassword.addEventListener("click", function () {
+//     const type = password.getAttribute("type") === "password" ? "text" : "password";
+//     password.setAttribute("type", type);
+//     this.classList.toggle("bi-eye");
+// });
+// 
 
 
 searchBarJS.addEventListener('input', refreshList)
@@ -27,11 +29,11 @@ function refreshList() {
                     }
                     else { var posterPath = "assets/Skeleton.png" }
                     searchBarResults.innerHTML += `<a href="./movie.php?movie_id=${movieId}" style="text-decoration:none;"> <div class="card text-center" style="width: 9rem; ">
-      <img src="${posterPath}" class="card-img-top" alt="${title} poster">
-      <div class="card-body">
-      <h5 class="card-title">${title}</h5></div>
-      
-      </div></a>`
+                    <img src="${posterPath}" class="card-img-top" alt="${title} poster">
+                    <div class="card-body">
+                    <h5 class="card-title">${title}</h5></div>
+                    
+                    </div></a>`
 
                 })
             )
@@ -108,4 +110,86 @@ function loadPage() {
             )
     }
 }
+
+
+
+
+///////////////////////////////////////////////////////////////////Validacion Formulario Registro
+
+const forms = document.getElementById('form');
+const inputs = document.querySelectorAll('#form input');
+
+const condicion = {
+	nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
+	password: /^.{4,12}$/, // 4 a 12 digitos.
+	correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/
+}
+
+const fields = {
+	nombre: false,
+	password: false,
+	correo: false
+}
+
+const validarFormulario = (e) => {
+	switch (e.target.name) {
+		case "nombre":
+			validarCampo(condicion.nombre, e.target, 'nombre');
+		break;
+		case "password":
+			validarCampo(condicion.password, e.target, 'password');
+			validarPassword2();
+		break;
+		case "password2":
+			validarPassword2();
+		break;
+		case "correo":
+			validarCampo(condicion.correo, e.target, 'correo');
+		break;
+	}
+}
+
+const validarCampo = (condicion, input, campo) => {
+	if(condicion.test(input.value)){
+		document.getElementById(`grupo__${campo}`).classList.remove('formulario__grupo-incorrecto');
+		document.getElementById(`grupo__${campo}`).classList.add('formulario__grupo-correcto');
+		document.querySelector(`#grupo__${campo} i`).classList.add('fa-check-circle');
+		document.querySelector(`#grupo__${campo} i`).classList.remove('fa-times-circle');
+		document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.remove('formulario__input-error-activo');
+		fields[campo] = true;
+	} else {
+		document.getElementById(`grupo__${campo}`).classList.add('formulario__grupo-incorrecto');
+		document.getElementById(`grupo__${campo}`).classList.remove('formulario__grupo-correcto');
+		document.querySelector(`#grupo__${campo} i`).classList.add('fa-times-circle');
+		document.querySelector(`#grupo__${campo} i`).classList.remove('fa-check-circle');
+		document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.add('formulario__input-error-activo');
+		fields[campo] = false;
+	}
+}
+
+const validarPassword2 = () => {
+	const inputPassword1 = document.getElementById('password');
+	const inputPassword2 = document.getElementById('password2');
+
+	if(inputPassword1.value !== inputPassword2.value){
+		document.getElementById(`grupo__password2`).classList.add('formulario__grupo-incorrecto');
+		document.getElementById(`grupo__password2`).classList.remove('formulario__grupo-correcto');
+		document.querySelector(`#grupo__password2 i`).classList.add('fa-times-circle');
+		document.querySelector(`#grupo__password2 i`).classList.remove('fa-check-circle');
+		document.querySelector(`#grupo__password2 .formulario__input-error`).classList.add('formulario__input-error-activo');
+		fields['password'] = false;
+	} else {
+		document.getElementById(`grupo__password2`).classList.remove('formulario__grupo-incorrecto');
+		document.getElementById(`grupo__password2`).classList.add('formulario__grupo-correcto');
+		document.querySelector(`#grupo__password2 i`).classList.remove('fa-times-circle');
+		document.querySelector(`#grupo__password2 i`).classList.add('fa-check-circle');
+		document.querySelector(`#grupo__password2 .formulario__input-error`).classList.remove('formulario__input-error-activo');
+		fields['password'] = true;
+	}
+}
+
+inputs.forEach((input) => {
+	input.addEventListener('keyup', validarFormulario);
+	input.addEventListener('blur', validarFormulario);
+});
 

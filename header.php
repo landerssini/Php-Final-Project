@@ -7,7 +7,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container fluid">
 
-            <a class="navbar-brand" href="#">YourMovieLib</a>
+            <a class="navbar-brand" href="./index.php">YourMovieLib</a>
             <form class="d-flex">
                 <input class="form-control me-2" id="searchBar" type="search" placeholder="Search" aria-label="Search">
             </form>

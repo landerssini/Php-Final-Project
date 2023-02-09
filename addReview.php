@@ -19,7 +19,8 @@ $result = mysqli_query($conn, $query);
 if (mysqli_num_rows($result) > 0) {
     $sql = "UPDATE movies SET review='$rating', comments = '$comment' WHERE user_email='$user_id' AND movie_id='$movie_id'";
     if(mysqli_query($conn, $sql)){
-        header("location: movie.php?movie_id=".$movie_id);
+        // header("location: movie.php?movie_id=".$movie_id);
+        echo json_encode('Save');
     } else {
         header("location: movie.php?error=queryerror");
     }

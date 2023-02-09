@@ -3,22 +3,31 @@
     padding: 0;
     box-sizing: border-box;
 }
-/* body{
+ /* body{
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-} */
-.nav-log{
+    justify-content: space-evenly;
+ } */
+/* .nav-log{
     padding:1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
+} */
 form{
     display: flex;
     flex-direction: column;
 }
+
+h3 {
+  color:#EEEEEE ;
+}
+
+.modal__form-color {
+  background-color: #3A4750;
+}
+
 .form-register{
     max-width: 500px;
     margin: 0 auto;
@@ -28,30 +37,30 @@ form{
 }
 #searchBarResults{
     display: grid;
-    grid-template-columns: auto;
-    text-align: center;
-    width: auto;
-    /* border: black solid 17px;
-    max-width: 50vw;
+    grid-template-columns: auto auto auto auto auto auto auto;
+    background: gre;
+    justify-content: space-evenly;
+    width: 100%;
+    /* border: black solid 17px; */
+    /* max-width: 50vw; */
     overflow-y: scroll;
     margin: 0 auto;
-    height: 400px; */
+    height: 400px;
 
 }
 #initialPageDiv {
     display: grid;
     grid-template-columns: auto auto auto auto auto auto;
+    justify-content: space-evenly;
     text-align: center;
-    width: auto;
-/* 
-form i {
+    
+}
+/* form i {
     margin-left: -30px;
     cursor: pointer;
+
 } */
-}
-html {
-    color: black;
-}
+
 .hidden{
     display:none;
 }
@@ -62,43 +71,195 @@ html {
     height: 50px;
   }
   
-  #formRating div {
-    text-align: center;
+#formRating div {
+  text-align: center;
+}
+
+#formRating label {
+  font-size: 20px;
+}
+
+/* input[type="radio"] {
+  display: none;
+} */
+
+label {
+  color: #EEEEEE;
+}
+
+.clasificacion {
+  direction: rtl;
+  unicode-bidi: bidi-override;
+}
+
+label:hover,
+label:hover ~ label {
+  color: #F6C90E;
+}
+
+/* input[type="radio"]:checked ~ label {
+  background: #000;
+} */
+#Comments{
+  margin:0 auto;
+}
+.movieListYL{
+  width:fit-content;
+  text-align: center;
+}
+#myLibrary{
+  display:grid;
+  grid-template-columns: auto auto auto auto ;
+} 
+
+  /* Form validation Styles */-------------------------------------------------------------------------------------
+
+
+  /* * {
+    box-sizing: border-box;
   }
   
-  #formRating label {
-    font-size: 20px;
+  body {
+    font-family: 'Roboto', sans-serif;
+    background: #E5E5E5;
   }
   
-  input[type="radio"] {
+  main {
+    max-width: 800px;
+    width: 90%;
+    margin: auto;
+    padding: 40px;
+  } */
+  .form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  
+  .formulario__label {
+    display: block;
+    font-weight: 700;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .formulario__grupo-input {
+    position: relative;
+  }
+  
+  .formulario__input {
+    width: 100%;
+    background: #EEEEEE;
+    border: 3px solid transparent;
+    border-radius: 3px;
+    height: 45px;
+    line-height: 45px;
+    padding: 0 40px 0 10px;
+    transition: .3s ease all;
+  }
+  
+  .formulario__input:focus {
+    border: 3px solid #0075FF;
+    outline: none;
+    box-shadow: 3px 0px 30px rgba(163,163,163, 0.4);
+  }
+  
+  .formulario__input-error {
+    font-size: 12px;
+    margin-bottom: 0;
+    color: #EEEEEE;
     display: none;
   }
   
-  label {
-    color: grey;
+  .formulario__input-error-activo {
+    display: block;
   }
   
-  .clasificacion {
-    direction: rtl;
-    unicode-bidi: bidi-override;
+  .formulario__validacion-estado {
+    position: absolute;
+    right: 10px;
+    bottom: 15px;
+    z-index: 100;
+    font-size: 16px;
+    opacity: 0;
   }
   
-  label:hover,
-  label:hover ~ label {
-    color: orange;
+  .formulario__checkbox {
+    margin-right: 10px;
   }
   
-  input[type="radio"]:checked ~ label {
-    color: orange;
+  .formulario__grupo-terminos, 
+  .formulario__mensaje,
+  .formulario__grupo-btn-enviar {
+    grid-column: span 2;
   }
-  #Comments{
-    margin:0 auto;
+  
+  .formulario__mensaje {
+    height: 45px;
+    line-height: 45px;
+    background: #F66060;
+    padding: 0 15px;
+    border-radius: 3px;
+    display: none;
   }
-  .movieListYL{
-    width:fit-content;
-    text-align: center;
+  
+  .formulario__mensaje-activo {
+    display: block;
   }
-  #myLibrary{
-    display:grid;
-    grid-template-columns: auto auto auto auto ;
+  
+  .formulario__mensaje p {
+    margin: 0;
   }
+  
+  .formulario__grupo-btn-enviar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .formulario__btn {
+    background: #303841;
+    color: #EEEEEE;
+    font-weight: bold;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: .1s ease all;
+  }
+  
+  .formulario__btn:hover {
+    box-shadow: 3px 0px 30px rgba(163,163,163, 1);
+    color: #F6C90E;
+}
+  }
+  
+  .formulario__mensaje-exito {
+    font-size: 14px;
+    color: #119200;
+    display: none;
+  }
+  
+  .formulario__mensaje-exito-activo {
+    display: block;
+  }
+  
+  /* ----- -----  Estilos para Validacion ----- ----- */
+  .formulario__grupo-correcto .formulario__validacion-estado {
+    color: #1ed12d;
+    opacity: 1;
+  }
+  
+  .formulario__grupo-incorrecto .formulario__label {
+    color: #bb2929;
+  }
+  
+  .formulario__grupo-incorrecto .formulario__validacion-estado {
+    color: #bb2929;
+    opacity: 1;
+  }
+  
+  .formulario__grupo-incorrecto .formulario__input {
+    border: 3px solid #bb2929;
+  }
+  
+  

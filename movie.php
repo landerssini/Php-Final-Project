@@ -1,6 +1,5 @@
 <?php
 session_start();
-echo $_SESSION["currentEmail"];
 ?>
 
 <!DOCTYPE html>
@@ -13,8 +12,8 @@ echo $_SESSION["currentEmail"];
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-    <script src="./assets/js/script.js?v=<?php echo time(); ?>" defer></script>
-    <link rel="stylesheet" href="./assets/css/styles.css?v=<?php echo time(); ?>">
+    <script src='./assets/js/script.js?v=<?php echo time(); ?>' defer></script>
+    <link rel='stylesheet" href="./assets/css/styles.css?v=<?php echo time(); ?>'>
     <title>FAVORITE-MOVIES</title>
 </head>
 
@@ -41,9 +40,8 @@ echo $_SESSION["currentEmail"];
                     <label for="radio5">★</label>
                     <!-- <input id="radio0" type="radio" name="Review" value="0" hidden checked> -->
                     <textarea name="Comments" rows="10" cols="50" id="Comments" required>Write something here</textarea>
-                    <input type="submit" value="Save">
+                    <input type="submit" value="Save" id="submit_rating">
                 </div>
-
             </form>
         </div>
     </section>
