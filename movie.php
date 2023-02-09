@@ -26,7 +26,12 @@ echo $_SESSION["currentEmail"];
             <div id="mainInfo"></div>
             <div id="sinopsis"></div>
             <div id="comments"></div>
-            <form action="addReview.php" method="POST" id="formRating">
+            
+                
+            <h3 class="d-flex justify-content-center">Your Opinion:</h3>
+
+                
+            <form action="addReview.php" class="ml-5" method="POST" id="formRating">
                 <div class="clasificacion">
                     <input id="ID" type="text" name="ID" value="<?php echo $id ?>" hidden>
                     <input id="radio1" type="radio" name="Review" value="5" hidden>
@@ -40,10 +45,9 @@ echo $_SESSION["currentEmail"];
                     <input id="radio5" type="radio" name="Review" value="1" hidden>
                     <label for="radio5">★</label>
                     <!-- <input id="radio0" type="radio" name="Review" value="0" hidden checked> -->
-                    <textarea name="Comments" rows="10" cols="50" id="Comments" required>Write something here</textarea>
-                    <input type="submit" value="Save">
+                    <textarea class="form-control" id="textArea" rows="5" name="Comments"></textarea>
+                    <input type="submit" class="btn btn-primary" value="Save">
                 </div>
-
             </form>
         </div>
     </section>
