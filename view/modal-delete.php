@@ -1,7 +1,7 @@
 
 <section>
         <button type="button" class="btn user__buttons" data-bs-toggle="modal" data-bs-target="#deleteModal">
-            Delete
+        <img src="./assets/icons/delete.png" alt="login-icon" width="20">
         </button>
         <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-sm">

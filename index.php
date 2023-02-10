@@ -29,9 +29,9 @@ include_once("./header.php");
 
   </div>
   <div class="paginationButtons" id="paginationButtons">
-    <button class='btn btn-primary' id="prevPage">⏮</button>
+    <button class='btn' id="prevPage">Prev</button>
     <p id="currentPage">1</p>
-    <button class='btn btn-primary' id="nextPage">⏩</button>
+    <button class='btn' id="nextPage">Next</button>
   </div>
 
   <?php include_once("./footer.php"); ?>

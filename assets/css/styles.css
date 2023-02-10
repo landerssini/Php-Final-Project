@@ -28,8 +28,8 @@ h3 {
 
 .user__buttons {
   color: #F6CA06;
-  border: 0.1rem solid #F6CA06;
-  margin-right: 3rem;
+  /* margin-right: 3rem; */
+  padding: 0.5rem;
 }
 
 .delete_modal-btns {
@@ -474,7 +474,10 @@ footer{
 
 .butons-login{
   display: flex !important;
-  align-items: center !important;
+    align-items: center !important;
+    color: #F6CA06;
+    font-weight: 600;
+    font-size: 20px;
 }
 .btn-signup{
   color:#F6CA06;
@@ -585,4 +588,25 @@ input[type="radio"]:checked ~ label {
   display: flex;
     justify-content: center;
     margin: 5rem;
+}
+
+#paginationButtons button{
+  color: #F6CA06;
+      border: 0.1rem solid #F6CA06;
+      margin-right: 3rem;
+      font-weight: 600;
+      min-width: 5rem;
+}
+
+#paginationButtons button:hover{
+  color: #060d17;
+      background-color:#F6CA06;
+      margin-right: 3rem;
+      font-weight: 600;
+}
+#modalEdit button, .btn .user__buttons {
+  border: none;
+}
+.nav-edit{
+  margin-left: 1rem;
 }

@@ -11,8 +11,8 @@ $answer = mysqli_query($conexion, $sql);
 $_SESSION["currentUsername"] = (mysqli_fetch_array($answer)["name"]);
 
 ?>
-<div class="nav-log">
-    <button type="button" class="btn user__buttons " data-bs-toggle="modal" data-bs-target="#modalEdit"> Edit </button>
+<div class="nav-log nav-edit">
+    <button type="button" class="btn user__buttons " data-bs-toggle="modal" data-bs-target="#modalEdit"><img src="./assets/icons/edit.png" alt="login-icon" width="20"></button>
     <div class="modal fade" id="modalEdit" tabindex="-1" aria-labelledby="modalEditLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-sm">
             <div class="modal-content modal__form-color">
