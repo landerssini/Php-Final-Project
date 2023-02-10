@@ -29,7 +29,7 @@ include_once("./header.php");
 
 <?php echo '<div id="indexPage"></div>';
 include_once("./header.php"); ?>
-  <div id="initialPageDiv">
+  <div id="initialPageDiv" class="img-hover-zoom">
 
   </div>
 

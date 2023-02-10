@@ -33,11 +33,12 @@ function refreshList() {
                         var posterPath = "https://image.tmdb.org/t/p/original/" + movie["poster_path"]
                     }
                     else { var posterPath = "assets/Skeleton.png" }
-                    searchBarResults.innerHTML += `<a href="./movie.php?movie_id=${movieId}" style="text-decoration:none;"> <div class="card text-center" style="width: 9rem; ">
-                    <img src="${posterPath}" class="card-img-top" alt="${title} poster">
+                    searchBarResults.innerHTML += `<a href="./movie.php?movie_id=${movieId}" style="text-decoration:none;"> <div class="card text-center border-0" style="width: 9rem; ">
+                    <div class movie__img-box>
+                      <img src="${posterPath}" class="card-img-top" alt="${title} poster">
+                    </div>
                     <div class="card-body">
-                    <h5 class="card-title">${title}</h5></div>
-                    
+                      <h5 class="card-title">${title}</h5></div>
                     </div></a>`
 
                 })
@@ -87,28 +88,28 @@ if (window.location.pathname.includes("/movie.php")) {
                 </div>
                 <div class="col-3" id="filmInfo">
                 <h3 class="d-flex justify-content-center">Film Info:</h3>
-                   <ul class="list-group list-group-flush mt-5">
-                      <li class="list-group-item">Genres:       ${finalGenres}.</li>
-                      <li class="list-group-item">Release date: ${data["release_date"]}.</li>
-                      <li class="list-group-item">Revenue: ${data["revenue"]}$. </li>
-                      <li class="list-group-item">Duration: ${data["runtime"]} minutes. </li>
-                      <li class="list-group-item">Vote average: ${data["vote_average"]}. </li>
+                   <ul class="list-group list-group-flush mt-5 ">
+                      <li class="list-group-item film-info_data">Genres:       ${finalGenres}.</li>
+                      <li class="list-group-item film-info_data">Release date: ${data["release_date"]}.</li>
+                      <li class="list-group-item film-info_data">Revenue: ${data["revenue"]}$. </li>
+                      <li class="list-group-item film-info_data">Duration: ${data["runtime"]} minutes. </li>
+                      <li class="list-group-item film-info_data">Vote average: ${data["vote_average"]}. </li>
                   </ul>
                 </div>
                 <div class="col-3" id="production">
                   <h3 class="d-flex justify-content-center">Production:</h3>
                   <ul class="list-group list-group-flush mt-5">
-                    <li class="list-group-item">Original Language: ${data["original_language"]}.</li>
-                    <li class="list-group-item">Budget: ${data["budget"]}$.</li>
-                    <li class="list-group-item">Production companies: ${finalCompanies}.</li>
+                    <li class="list-group-item production-info_data">Original Language: ${data["original_language"]}.</li>
+                    <li class="list-group-item production-info_data">Budget: ${data["budget"]}$.</li>
+                    <li class="list-group-item production-info_data">Production companies: ${finalCompanies}.</li>
                 </ul>
                 </div>
             </div>
             <div class="row">
                 <div class="col-6 m-5" id="Sinopsis">
                     <div class="d-flex justify-content-center p-5"></div>
-                    <h3 class="d-flex align-self-xl-start ml-4">Sinopsis:</h3>
-                    <p>${data["overview"]}</p>
+                    <h3 class="d-flex align-self-xl-start ml-4 ">Sinopsis:</h3>
+                    <p class="synopsis_data">${data["overview"]}</p>
                 </div>
                 
                 
@@ -167,8 +168,8 @@ function loadPage() {
                         var posterPath = "https://image.tmdb.org/t/p/original/" + movie["poster_path"]
                     }
                     else { var posterPath = "assets/Skeleton.png" }
-                    initialPageDiv.innerHTML += `<a href="./movie.php?movie_id=${movieId}" style="text-decoration:none; color:black;" ><div class="card text-center" style="width: 18rem;">
-        <img src="${posterPath}" " class="card-img-top" alt="${title} poster">
+                    initialPageDiv.innerHTML += `<a href="./movie.php?movie_id=${movieId}" style="text-decoration:none; color:black;" ><div class="card text-center border-0" style="width: 18rem;">
+        <img src="${posterPath}" " class="card-img-top img-hover-zoom--quick " alt="${title} poster">
         <div class="card-body">
         <h5 class="card-title">${title}</h5></div>
         </div></a>`

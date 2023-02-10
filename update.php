@@ -14,11 +14,8 @@ class Edit extends Connection{
                 $result = mysqli_query($conexion, $sql);
                 if ($result) {
                     echo "<p>Cambiado correctamente</p>";
-                    echo $name_user;
-                    echo $email;
+
                     
-                }else{
-                    echo '<p>Holaaa!</p>';
                 }
             }
         }

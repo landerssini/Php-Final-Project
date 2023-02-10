@@ -24,5 +24,4 @@ include_once('./db.php');
     session_start();
     $user = $_SESSION["currentEmail"];
     $db = new Delete;
-    echo $_SESSION["currentEmail"];
     $db->deleteUser($user);

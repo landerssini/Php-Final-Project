@@ -4,7 +4,6 @@ if(isset($_POST['email']) && isset($_POST['password'])){
     include_once('update.php');
 }
 
-// session_start();
 
 if (isset($_SESSION["currentEmail"])) {
     header("location:index.php");

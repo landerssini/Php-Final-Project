@@ -25,15 +25,13 @@ session_start();
         <div <?php $id = $_GET["movie_id"];
                 echo 'movie_id="' . $id . '"' ?>>
             <div id="mainInfo"></div>
-            <!-- <div id="sinopsis"></div> -->
-            <!-- <div id="comments"></div> -->
             <div class="form-rating">
 
                 <h3 class="d-flex justify-content-center">Your Opinion:</h3>
     
                     
                 <form action="addReview.php" method="POST" id="formRating">
-                    <div class="clasificacion">
+                    <div class="clasificacion" class="form__review" id="form__review">
                         <input id="ID" type="text" name="ID" value="<?php echo $id ?>" hidden>
                         <input id="radio1" type="radio" name="Review" value="5" hidden>
                         <label for="radio1">★</label>
@@ -46,8 +44,8 @@ session_start();
                         <input id="radio5" type="radio" name="Review" value="1" hidden>
                         <label for="radio5">★</label>
                         <!-- <input id="radio0" type="radio" name="Review" value="0" hidden checked> -->
-                        <textarea name="Comments" rows="10" cols="50" id="Comments" required>Write something here</textarea>
-                        <input type="submit" value="Save" id="submit_rating">
+                        <textarea name="Comments" rows="10" cols="50" id="Comments" required placeholder="Write something here"></textarea>
+                        <input type="submit" value="Save" id="submit_rating" class="btn submit_rating">
                     </div>
                 </form>
             </div>

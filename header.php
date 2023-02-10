@@ -9,21 +9,18 @@
 
             <a class="navbar-brand" href="./index.php">YourMovieLib</a>
             <form class="d-flex" id="form-search">
-                <input class="form-control me-2" id="searchBar" type="search" placeholder="Search" aria-label="Search" name="pepito">
+                <input class="form-control me-2" id="searchBar" type="search" placeholder="Search" aria-label="Search">
             </form>
             <?php
             if (isset($_SESSION['currentEmail'])) {
-                // if ($_GET['session'] == 'active') 
-                {
-                    echo '<a class="nav-link" href="yourLibrary.php">Your Library</a>';
+                    echo '<a class="user__library" href="yourLibrary.php">Your Library</a>';
                     echo '<div class="butons-login">';
                     include_once("./view/modal-edit.php");
                     include_once("./view/modal-delete.php");
-                    echo '<a href="./logout.php"><button type="button" class="btn btn-primary" ><span class="material-symbols-outlined">
-                    logout
-                    </span></button></a>';
+                    echo '<a href="./logout.php"><button type="button" class="btn material-symbols-outlined user__button-exit" >
+                    logout</button></a>';
                     echo "</div>";
-                }
+                
             } else {
                 echo '<div class="d-flex">';
                 include_once("./view/modal-login.php");
