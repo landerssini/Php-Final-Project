@@ -47,7 +47,10 @@ if (!isset($_SESSION["currentEmail"])) {
                 <div class="titleMovie"></div>
                 <div class="review"></div>
                 <div class="commentDiv"></div>
-                
+                <form action="deleteReview.php" method='POST'>
+                    <input type="hidden" id='<?php echo $idR; ?>' name='id-movie'>
+                    <input type="submit" class="btn delete__fmovie" >
+                </form>
             </div>
         <?php } ?>
     </div>
