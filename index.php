@@ -30,7 +30,7 @@ include_once("./header.php");
   </div>
   <div class="paginationButtons" id="paginationButtons">
     <button class='btn' id="prevPage">Prev</button>
-    <p id="currentPage">1</p>
+    <p id="currentPage"></p>
     <button class='btn' id="nextPage">Next</button>
   </div>
 
