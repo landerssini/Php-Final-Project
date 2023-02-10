@@ -80,42 +80,43 @@ if (window.location.pathname.includes("/movie.php")) {
             // genres = genres["name"];
             
             mainInfo.innerHTML += `
-            <div class="container">
+            <section class="container" id="pageMovie">
             <div class="row">
-                <h1 class="d-flex justify-content-center p-5">${data["title"]}</h1>
-                <div class="col-6" id="poster">
-                <img class="rounded mx-auto d-block" src="https://image.tmdb.org/t/p/original/${data["poster_path"]}" style="width:360px;" alt="${data["title"]} poster">
+                <div class="col-md-12">
+                    <h1>${data["title"]}</h1>
                 </div>
-                <div class="col-3" id="filmInfo">
-                <h3 class="d-flex justify-content-center">Film Info:</h3>
-                   <ul class="list-group list-group-flush mt-5 ">
-                      <li class="list-group-item film-info_data">Genres:       ${finalGenres}.</li>
-                      <li class="list-group-item film-info_data">Release date: ${data["release_date"]}.</li>
-                      <li class="list-group-item film-info_data">Revenue: ${data["revenue"]}$. </li>
-                      <li class="list-group-item film-info_data">Duration: ${data["runtime"]} minutes. </li>
-                      <li class="list-group-item film-info_data">Vote average: ${data["vote_average"]}. </li>
-                  </ul>
+                <div class="col-md-4">
+                    <img src="https://image.tmdb.org/t/p/original/${data["poster_path"]}" style="width:360px;" alt="${data["title"]} poster">
                 </div>
-                <div class="col-3" id="production">
-                  <h3 class="d-flex justify-content-center">Production:</h3>
-                  <ul class="list-group list-group-flush mt-5">
-                    <li class="list-group-item production-info_data">Original Language: ${data["original_language"]}.</li>
-                    <li class="list-group-item production-info_data">Budget: ${data["budget"]}$.</li>
-                    <li class="list-group-item production-info_data">Production companies: ${finalCompanies}.</li>
-                </ul>
+                <div class="col-md-8 d-flex">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h3>Film Info:</h3>
+                            <ul class="list-group list-group-flush mt-5">
+                                <li class="list-group-item">Genres:       ${finalGenres}.</li>
+                                <li class="list-group-item">Release date: ${data["release_date"]}.</li>
+                                <li class="list-group-item">Revenue: ${data["revenue"]}$. </li>
+                                <li class="list-group-item">Duration: ${data["runtime"]} minutes. </li>
+                                <li class="list-group-item">Vote average: ${data["vote_average"]}. </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h3>Production:</h3>
+                            <ul class="list-group list-group-flush mt-5">
+                                <li class="list-group-item">Original Language: ${data["original_language"]}.</li>
+                                <li class="list-group-item">Budget: ${data["budget"]}$.</li>
+                                <li class="list-group-item">Production companies: ${finalCompanies}.</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-12">
+                            <h3>Sinopsis:</h3>
+                            <p>${data["overview"]}</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-6 m-5" id="Sinopsis">
-                    <div class="d-flex justify-content-center p-5"></div>
-                    <h3 class="d-flex align-self-xl-start ml-4 ">Sinopsis:</h3>
-                    <p class="synopsis_data">${data["overview"]}</p>
-                </div>
-                
-                
-                
-            </div>
-          </div>`;
+        </section>
+          `;
         })
         
 }
