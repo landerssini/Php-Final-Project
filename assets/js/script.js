@@ -5,14 +5,14 @@ const searchBarResults = document.querySelector("#searchBarResults");
 const searchView = document.querySelector(".search-hidden");
 
 searchBarJS.addEventListener('input', refreshList);
-searchBarJS.addEventListener('keyup',  viewModalResult);
+searchBarJS.addEventListener('keyup', viewModalResult);
 
-function viewModalResult(){
+function viewModalResult() {
     searchView.style.display = "block";
 
     if (searchBarJS.value === "") {
         searchView.style.display = "none";
-    }else {
+    } else {
         searchView.style.display = "block";
     }
 
@@ -74,11 +74,11 @@ if (window.location.pathname.includes("/movie.php")) {
                 companiesString.push(nameComp)
             })
             let finalCompanies = companiesString.toString();
-            
 
-            
+
+
             // genres = genres["name"];
-            
+
             mainInfo.innerHTML += `
             <section class="container" id="pageMovie">
             <div class="row">
@@ -118,7 +118,7 @@ if (window.location.pathname.includes("/movie.php")) {
         </section>
           `;
         })
-        
+
 }
 
 
@@ -156,10 +156,26 @@ if (window.location.pathname.includes("/yourLibrary.php")) {
 
 window.addEventListener('load', loadPage)
 let initialPageDiv = document.querySelector("#initialPageDiv")
+let prevPage = document.querySelector("#prevPage")
+let nextPage = document.querySelector("#nextPage")
+let currentPageP = document.querySelector("#currentPage")
+prevPage.addEventListener("click", prevPageF)
+nextPage.addEventListener("click", nextPageF)
+function prevPageF() {
+    currentPage--
+    loadPage()
+}
+function nextPageF() {
+    currentPage++
+    loadPage()
+}
 
+
+let currentPage = 1
 function loadPage() {
-    if (document.getElementById("indexPage")!=null) {
-        fetch("https://api.themoviedb.org/3/movie/top_rated?api_key=c5fe6d1a7a37ade55ce430078dfb6628&language=es-ES&page=2")
+    initialPageDiv.innerHTML=""
+    if (document.getElementById("indexPage") != null) {
+        fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=c5fe6d1a7a37ade55ce430078dfb6628&language=es-ES&page=${currentPage}`)
             .then(response => response.json())
             .then(data =>
                 data['results'].forEach(movie => {
@@ -174,7 +190,7 @@ function loadPage() {
         <div class="card-body">
         <h5 class="card-title">${title}</h5></div>
         </div></a>`
-                    console.log(movie);
+                    
                 })
             )
     }
@@ -189,77 +205,77 @@ const forms = document.getElementById('form');
 const inputs = document.querySelectorAll('#form input');
 
 const condicion = {
-	nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
-	password: /^.{4,12}$/, // 4 a 12 digitos.
-	correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/
+    nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
+    password: /^.{4,12}$/, // 4 a 12 digitos.
+    correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/
 }
 
 const fields = {
-	nombre: false,
-	password: false,
-	correo: false
+    nombre: false,
+    password: false,
+    correo: false
 }
 
 const validarFormulario = (e) => {
-	switch (e.target.name) {
-		case "nombre":
-			validarCampo(condicion.nombre, e.target, 'nombre');
-		break;
-		case "password":
-			validarCampo(condicion.password, e.target, 'password');
-			validarPassword2();
-		break;
-		case "password2":
-			validarPassword2();
-		break;
-		case "correo":
-			validarCampo(condicion.correo, e.target, 'correo');
-		break;
-	}
+    switch (e.target.name) {
+        case "nombre":
+            validarCampo(condicion.nombre, e.target, 'nombre');
+            break;
+        case "password":
+            validarCampo(condicion.password, e.target, 'password');
+            validarPassword2();
+            break;
+        case "password2":
+            validarPassword2();
+            break;
+        case "correo":
+            validarCampo(condicion.correo, e.target, 'correo');
+            break;
+    }
 }
 
 const validarCampo = (condicion, input, campo) => {
-	if(condicion.test(input.value)){
-		document.getElementById(`grupo__${campo}`).classList.remove('formulario__grupo-incorrecto');
-		document.getElementById(`grupo__${campo}`).classList.add('formulario__grupo-correcto');
-		document.querySelector(`#grupo__${campo} i`).classList.add('fa-check-circle');
-		document.querySelector(`#grupo__${campo} i`).classList.remove('fa-times-circle');
-		document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.remove('formulario__input-error-activo');
-		fields[campo] = true;
-	} else {
-		document.getElementById(`grupo__${campo}`).classList.add('formulario__grupo-incorrecto');
-		document.getElementById(`grupo__${campo}`).classList.remove('formulario__grupo-correcto');
-		document.querySelector(`#grupo__${campo} i`).classList.add('fa-times-circle');
-		document.querySelector(`#grupo__${campo} i`).classList.remove('fa-check-circle');
-		document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.add('formulario__input-error-activo');
-		fields[campo] = false;
-	}
+    if (condicion.test(input.value)) {
+        document.getElementById(`grupo__${campo}`).classList.remove('formulario__grupo-incorrecto');
+        document.getElementById(`grupo__${campo}`).classList.add('formulario__grupo-correcto');
+        document.querySelector(`#grupo__${campo} i`).classList.add('fa-check-circle');
+        document.querySelector(`#grupo__${campo} i`).classList.remove('fa-times-circle');
+        document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.remove('formulario__input-error-activo');
+        fields[campo] = true;
+    } else {
+        document.getElementById(`grupo__${campo}`).classList.add('formulario__grupo-incorrecto');
+        document.getElementById(`grupo__${campo}`).classList.remove('formulario__grupo-correcto');
+        document.querySelector(`#grupo__${campo} i`).classList.add('fa-times-circle');
+        document.querySelector(`#grupo__${campo} i`).classList.remove('fa-check-circle');
+        document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.add('formulario__input-error-activo');
+        fields[campo] = false;
+    }
 }
 
 const validarPassword2 = () => {
-	const inputPassword1 = document.getElementById('password');
-	const inputPassword2 = document.getElementById('password2');
+    const inputPassword1 = document.getElementById('password');
+    const inputPassword2 = document.getElementById('password2');
 
-	if(inputPassword1.value !== inputPassword2.value){
-		document.getElementById(`grupo__password2`).classList.add('formulario__grupo-incorrecto');
-		document.getElementById(`grupo__password2`).classList.remove('formulario__grupo-correcto');
-		document.querySelector(`#grupo__password2 i`).classList.add('fa-times-circle');
-		document.querySelector(`#grupo__password2 i`).classList.remove('fa-check-circle');
-		document.querySelector(`#grupo__password2 .formulario__input-error`).classList.add('formulario__input-error-activo');
-		fields['password'] = false;
-	} else {
-		document.getElementById(`grupo__password2`).classList.remove('formulario__grupo-incorrecto');
-		document.getElementById(`grupo__password2`).classList.add('formulario__grupo-correcto');
-		document.querySelector(`#grupo__password2 i`).classList.remove('fa-times-circle');
-		document.querySelector(`#grupo__password2 i`).classList.add('fa-check-circle');
-		document.querySelector(`#grupo__password2 .formulario__input-error`).classList.remove('formulario__input-error-activo');
-		fields['password'] = true;
-	}
+    if (inputPassword1.value !== inputPassword2.value) {
+        document.getElementById(`grupo__password2`).classList.add('formulario__grupo-incorrecto');
+        document.getElementById(`grupo__password2`).classList.remove('formulario__grupo-correcto');
+        document.querySelector(`#grupo__password2 i`).classList.add('fa-times-circle');
+        document.querySelector(`#grupo__password2 i`).classList.remove('fa-check-circle');
+        document.querySelector(`#grupo__password2 .formulario__input-error`).classList.add('formulario__input-error-activo');
+        fields['password'] = false;
+    } else {
+        document.getElementById(`grupo__password2`).classList.remove('formulario__grupo-incorrecto');
+        document.getElementById(`grupo__password2`).classList.add('formulario__grupo-correcto');
+        document.querySelector(`#grupo__password2 i`).classList.remove('fa-times-circle');
+        document.querySelector(`#grupo__password2 i`).classList.add('fa-check-circle');
+        document.querySelector(`#grupo__password2 .formulario__input-error`).classList.remove('formulario__input-error-activo');
+        fields['password'] = true;
+    }
 }
 
 inputs.forEach((input) => {
-	input.addEventListener('keyup', validarFormulario);
-	input.addEventListener('blur', validarFormulario);
+    input.addEventListener('keyup', validarFormulario);
+    input.addEventListener('blur', validarFormulario);
 });
 
 
