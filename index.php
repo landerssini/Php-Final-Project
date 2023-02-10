@@ -5,7 +5,7 @@
 //  require_once("./db.php");
 //  require_once("./delete.php");
 session_start();
-
+include_once("./header.php"); 
 ?>
 
 <!DOCTYPE html>

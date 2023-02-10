@@ -27,12 +27,15 @@ $_SESSION["currentUsername"] = (mysqli_fetch_array($answer)["name"]);
                         <label for="name" class="formulario__label">Nombre</label>
                         <input type="text" class="form-control formulario__input" name="nombre" placeholder="Your Name"
                             value='<?php echo $_SESSION["currentUsername"] ?>'>
-                        <label for="email" class="formulario__label">Email</label>
-                        <input type="email" class="form-control formulario__input" name="correo" placeholder="Email"
-                            value='<?php echo $_SESSION["currentEmail"] ?>'>
-                        <label for="password" class="formulario__label">Password</label>
-                        <input type="password" class="form-control password formulario__input" name="password" placeholder="Password"
+                            <label for="password" class="formulario__label">Password</label>
+                            <input type="password" class="form-control password formulario__input" name="password" placeholder="Password"
                             value='<?php echo $_SESSION["currentPass"] ?>'>
+                            <label for="email" class="formulario__label">Email</label>
+                            <!-- <input type="email" class="form-control formulario__input" name="correo" placeholder='<?php echo $_SESSION["currentEmail"] ?>'
+                            readonly class="edit-email"> -->
+                            <p class="form-control" style="backgroun-color:grey">
+                            <?php echo $_SESSION["currentEmail"] ?>
+                            </p>
                     </div>
                     <div class="modal-footer">
                         <input type="submit" class="btn btn-primary" name="update" value="Update">

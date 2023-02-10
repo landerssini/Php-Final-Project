@@ -10,7 +10,7 @@
       $this->host = 'localhost';
       $this->userName = "root";
       $this->password = '';
-      $this->db_name = 'favourites_movies';
+      $this->db_name = 'favorites_movies';
     }
     public function connect(){
       $conn = mysqli_connect($this->host, $this->userName, $this->password, $this->db_name);

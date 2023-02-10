@@ -143,6 +143,10 @@
     border: 3px solid #bb2929;
   }
 
+input .edit-email{
+    background-color: #000000d5 !important;
+  }
+
 
   @media screen and (max-width: 800px) {
     .sign-form {

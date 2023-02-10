@@ -4,7 +4,7 @@ include_once("./db.php");
 ?>
 
 <div class="nav-log">
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalSignUp"> Sign Up
+    <button type="button" class="btn btn-signup" data-bs-toggle="modal" data-bs-target="#modalSignUp"> Sign Up
     </button>
     <div class="modal fade" id="modalSignUp" tabindex="-1" aria-labelledby="modalSignUpLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">

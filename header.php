@@ -4,19 +4,19 @@
 // error_reporting(E_ALL);
 ?>
 <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container fluid">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
 
             <a class="navbar-brand" href="./index.php">YourMovieLib</a>
-            <form class="d-flex">
-                <input class="form-control me-2" id="searchBar" type="search" placeholder="Search" aria-label="Search">
+            <form class="d-flex" id="form-search">
+                <input class="form-control me-2" id="searchBar" type="search" placeholder="Search" aria-label="Search" name="pepito">
             </form>
             <?php
             if (isset($_SESSION['currentEmail'])) {
                 // if ($_GET['session'] == 'active') 
                 {
                     echo '<a class="nav-link" href="yourLibrary.php">Your Library</a>';
-                    echo '<div class="d-flex">';
+                    echo '<div class="butons-login">';
                     include_once("./view/modal-edit.php");
                     include_once("./view/modal-delete.php");
                     echo '<a href="./logout.php"><button type="button" class="btn btn-primary" ><span class="material-symbols-outlined">
@@ -35,7 +35,7 @@
 
         </div>
     </nav>
-    <div id="searchBarResultsP">
+    <div id="searchBarResultsP" class="search-hidden">
         <div id="searchBarResults"></div>
     </div>
 </header>
