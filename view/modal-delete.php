@@ -1,9 +1,3 @@
-<?php
-// include_once('./delete.php');
-// $db = new Delete;
-// $db->deleteUser();
-
-?>
 
 <section>
         <button type="button" class="btn user__buttons" data-bs-toggle="modal" data-bs-target="#deleteModal">
