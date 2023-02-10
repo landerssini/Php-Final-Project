@@ -44,8 +44,9 @@ session_start();
                         <input id="radio5" type="radio" name="Review" value="1" hidden>
                         <label for="radio5">★</label>
                         <!-- <input id="radio0" type="radio" name="Review" value="0" hidden checked> -->
-                        <textarea name="Comments" rows="10" cols="50" id="Comments" required placeholder="Write something here"></textarea>
+                        <input type="text" name="Comments" id="Comments" required placeholder="Write something here">
                         <input type="submit" value="Save" id="submit_rating" class="btn submit_rating">
+                        <!-- <textarea name="Comments" rows="10" cols="50" id="Comments" required placeholder="Write something here"></textarea> -->
                     </div>
                 </form>
             </div>
