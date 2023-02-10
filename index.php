@@ -1,9 +1,5 @@
-<?php
-// ini_set('display_errors', 1);
-// ini_set('display_startup_errors', 1);
-// error_reporting(E_ALL);
-//  require_once("./db.php");
-//  require_once("./delete.php");
+<?php 
+
 session_start();
 include_once("./header.php");
 ?>
@@ -32,7 +28,7 @@ include_once("./header.php");
   <div id="initialPageDiv" class="img-hover-zoom">
 
   </div>
-  <div class="paginationButtons justify-content-center " id="paginationButtons">
+  <div class="paginationButtons" id="paginationButtons">
     <button class='btn btn-primary' id="prevPage">⏮</button>
     <p id="currentPage"></p>
     <button class='btn btn-primary' id="nextPage">⏩</button>

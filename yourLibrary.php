@@ -1,8 +1,6 @@
 <?php
 include_once("./db.php");
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+
 session_start();
 
 if (!isset($_SESSION["currentEmail"])) {
@@ -47,7 +45,6 @@ if (!isset($_SESSION["currentEmail"])) {
             <div <?php echo "id='$idR'"; ?>class="movieListYL">
                 <div class="posterPath"></div>
                 <div class="titleMovie"></div>
-                <div class="time"></div>
                 <div class="review"></div>
                 <div class="commentDiv"></div>
                 

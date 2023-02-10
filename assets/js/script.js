@@ -78,7 +78,6 @@ if (window.location.pathname.includes("/movie.php")) {
 
 
             // genres = genres["name"];
-
             mainInfo.innerHTML += `
             <section class="container" id="pageMovie">
             <div class="row">
@@ -115,8 +114,7 @@ if (window.location.pathname.includes("/movie.php")) {
                     </div>
                 </div>
             </div>
-        </section>
-          `;
+        </section>`;
         })
 
 }
@@ -143,8 +141,8 @@ if (window.location.pathname.includes("/yourLibrary.php")) {
             .then(data => {
                 posterPath.innerHTML += `<a href="movie.php?movie_id=${data["id"]}"><img src="https://image.tmdb.org/t/p/original/${data["poster_path"]}" style="width:270px;" alt="${data["title"]} poster">`
                 titleMovie.innerHTML += `<p>${data["title"]}</p>`
-                review.innerHTML += `<p>${reviewM}</p>`
-                commentDiv.innerHTML += `<p>${commentM}</p></a>`
+                review.innerHTML += `<p><span class="p-rating">Rating </span>${reviewM}</p>`
+                commentDiv.innerHTML += `<p><span class="p-comment">Comment: <br></span>${commentM}</p></a>`
             }
             )
 
