@@ -50,6 +50,7 @@ if (!isset($_SESSION["currentEmail"])) {
                 <div class="time"></div>
                 <div class="review"></div>
                 <div class="commentDiv"></div>
+                
             </div>
         <?php } ?>
     </div>

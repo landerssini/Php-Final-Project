@@ -174,6 +174,7 @@ function nextPageF() {
 let currentPage = 1
 function loadPage() {
     initialPageDiv.innerHTML=""
+    currentPageP.innerHTML = currentPage;
     if (document.getElementById("indexPage") != null) {
         fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=c5fe6d1a7a37ade55ce430078dfb6628&language=es-ES&page=${currentPage}`)
             .then(response => response.json())

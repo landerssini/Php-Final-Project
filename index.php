@@ -34,7 +34,7 @@ include_once("./header.php");
   </div>
   <div class="paginationButtons justify-content-center " id="paginationButtons">
     <button class='btn btn-primary' id="prevPage">⏮</button>
-    <p id="currentPage">1</p>
+    <p id="currentPage"></p>
     <button class='btn btn-primary' id="nextPage">⏩</button>
   </div>
 
